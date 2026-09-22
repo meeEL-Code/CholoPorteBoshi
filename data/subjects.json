@@ -1,0 +1,25 @@
+{
+  "6": [
+    {"id": "math", "name": "গণিত", "icon": "fa-calculator"},
+    {"id": "science", "name": "বিজ্ঞান", "icon": "fa-flask"},
+    {"id": "bangla", "name": "বাংলা", "icon": "fa-book-open"},
+    {"id": "english", "name": "ইংরেজি", "icon": "fa-language"}
+  ],
+  "7": [
+    {"id": "math", "name": "গণিত", "icon": "fa-calculator"},
+    {"id": "science", "name": "বিজ্ঞান", "icon": "fa-flask"},
+    {"id": "bangla", "name": "বাংলা", "icon": "fa-book-open"}
+  ],
+  "8": [
+    {"id": "math", "name": "গণিত", "icon": "fa-calculator"},
+    {"id": "science", "name": "বিজ্ঞান", "icon": "fa-flask"}
+  ],
+  "9": [
+    {"id": "math", "name": "গণিত", "icon": "fa-calculator"},
+    {"id": "physics", "name": "পদার্থবিজ্ঞান", "icon": "fa-atom"}
+  ],
+  "10": [
+    {"id": "math", "name": "গণিত", "icon": "fa-calculator"},
+    {"id": "physics", "name": "পদার্থবিজ্ঞান", "icon": "fa-atom"}
+  ]
+}
