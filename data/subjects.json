@@ -1,25 +1,18 @@
 {
   "6": [
+    {"id": "bangla", "name": "চারুপাঠ ও আনন্দপাঠ", "icon": "fa-book-open"},
+    {"id": "bangla-grammar", "name": "বাংলা ব্যাকরণ ও নির্মিতি", "icon": "fa-spell-check"},
+    {"id": "english", "name": "English For Today", "icon": "fa-language"},
+    {"id": "english-grammar", "name": "English Grammar & Composition", "icon": "fa-pen-fancy"},
     {"id": "math", "name": "গণিত", "icon": "fa-calculator"},
+    {"id": "ict", "name": "তথ্য ও যোগাযোগ প্রযুক্তি", "icon": "fa-laptop-code"},
+    {"id": "bgs", "name": "বাংলাদেশ ও বিশ্বপরিচয়", "icon": "fa-earth-asia"},
     {"id": "science", "name": "বিজ্ঞান", "icon": "fa-flask"},
-    {"id": "bangla", "name": "বাংলা", "icon": "fa-book-open"},
-    {"id": "english", "name": "ইংরেজি", "icon": "fa-language"}
-  ],
-  "7": [
-    {"id": "math", "name": "গণিত", "icon": "fa-calculator"},
-    {"id": "science", "name": "বিজ্ঞান", "icon": "fa-flask"},
-    {"id": "bangla", "name": "বাংলা", "icon": "fa-book-open"}
-  ],
-  "8": [
-    {"id": "math", "name": "গণিত", "icon": "fa-calculator"},
-    {"id": "science", "name": "বিজ্ঞান", "icon": "fa-flask"}
-  ],
-  "9": [
-    {"id": "math", "name": "গণিত", "icon": "fa-calculator"},
-    {"id": "physics", "name": "পদার্থবিজ্ঞান", "icon": "fa-atom"}
-  ],
-  "10": [
-    {"id": "math", "name": "গণিত", "icon": "fa-calculator"},
-    {"id": "physics", "name": "পদার্থবিজ্ঞান", "icon": "fa-atom"}
+    {"id": "pe", "name": "শারীরিক শিক্ষা ও স্বাস্থ্য", "icon": "fa-heart-pulse"},
+    {"id": "work", "name": "কর্ম ও জীবনমুখী শিক্ষা", "icon": "fa-briefcase"},
+    {"id": "islam", "name": "ইসলাম শিক্ষা", "icon": "fa-mosque"},
+    {"id": "hindu", "name": "হিন্দুধর্ম শিক্ষা", "icon": "fa-om"},
+    {"id": "christian", "name": "খ্রীষ্টধর্ম শিক্ষা", "icon": "fa-cross"},
+    {"id": "buddhist", "name": "বৌদ্ধধর্ম শিক্ষা", "icon": "fa-dharmachakra"}
   ]
 }
