@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>পরীক্ষা - চলো পড়তে বসি</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <h1 class="logo">চলো পড়তে বসি</h1>
+            <p class="tagline">নিজেকে যাচাই করুন</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <a href="index.html" class="back-btn" title="ফিরে যান">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h2 class="section-title">অনলাইন পরীক্ষা</h2>
+        </div>
+
+        <!-- Setup Screen -->
+        <section id="setupScreen" class="exam-setup">
+            <div class="setup-card">
+                <label for="classSelect">ক্লাস নির্বাচন করুন</label>
+                <select id="classSelect">
+                    <option value="6">Class 6</option>
+                </select>
+
+                <label for="subjectSelect">বিষয় নির্বাচন করুন</label>
+                <select id="subjectSelect">
+                    <option value="math">গণিত</option>
+                </select>
+
+                <label for="chapterSelect">চ্যাপ্টার নির্বাচন করুন</label>
+                <select id="chapterSelect">
+                    <!-- Populated by JS -->
+                </select>
+
+                <button id="startBtn" class="btn-primary">
+                    <i class="fas fa-play"></i> পরীক্ষা শুরু করুন
+                </button>
+            </div>
+        </section>
+
+        <!-- Exam Screen -->
+        <section id="examScreen" class="exam-screen hidden">
+            <div class="exam-header">
+                <div class="timer" id="timer">
+                    <i class="fas fa-clock"></i> <span id="timerText">২০:০০</span>
+                </div>
+                <div class="progress-text">
+                    প্রশ্ন <span id="currentQ">১</span> / <span id="totalQ">২০</span>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text" id="questionText">লোড হচ্ছে...</p>
+                <div class="options-list" id="optionsList">
+                    <!-- Options populated by JS -->
+                </div>
+            </div>
+
+            <div class="exam-nav">
+                <button id="prevBtn" class="btn-secondary">
+                    <i class="fas fa-arrow-left"></i> পূর্ববর্তী
+                </button>
+                <button id="nextBtn" class="btn-primary">
+                    পরবর্তী <i class="fas fa-arrow-right"></i>
+                </button>
+                <button id="submitBtn" class="btn-submit hidden">
+                    <i class="fas fa-check"></i> সাবমিট করুন
+                </button>
+            </div>
+        </section>
+
+        <!-- Result Screen -->
+        <section id="resultScreen" class="result-screen hidden">
+            <div class="result-card">
+                <div class="result-icon" id="resultIcon">🎉</div>
+                <h2 id="resultTitle">অভিনন্দন!</h2>
+                <p class="result-score" id="resultScore">০ / ২০</p>
+                <p class="result-message" id="resultMessage"></p>
+
+                <div class="result-stats">
+                    <div class="stat-box">
+                        <span class="stat-label">সঠিক</span>
+                        <span class="stat-value correct" id="correctCount">০</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">ভুল</span>
+                        <span class="stat-value wrong" id="wrongCount">০</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">সময়</span>
+                        <span class="stat-value" id="timeTaken">০:০০</span>
+                    </div>
+                </div>
+
+                <div class="result-actions">
+                    <button onclick="location.reload()" class="btn-primary">
+                        <i class="fas fa-redo"></i> আবার পরীক্ষা
+                    </button>
+                    <a href="index.html" class="btn-secondary">
+                        <i class="fas fa-home"></i> হোমে ফিরুন
+                    </a>
+                </div>
+            </div>
+
+            <!-- Answer Review -->
+            <div class="review-section">
+                <h3 class="section-title" style="text-align: left; margin-top: 30px;">
+                    <i class="fas fa-list-check"></i> উত্তর পর্যালোচনা
+                </h3>
+                <div id="reviewList"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 চলো পড়তে বসি। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+    <script src="js/exam.js"></script>
+</body>
+</html>
