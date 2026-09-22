@@ -1,0 +1,29 @@
+{
+  "6": {
+    "math": [
+      {"id": "ch1", "num": "১", "title": "স্বাভাবিক সংখ্যা", "pdf": "pdfs/class6/math/ch1.pdf"},
+      {"id": "ch2", "num": "২", "title": "ভগ্নাংশ", "pdf": "pdfs/class6/math/ch2.pdf"},
+      {"id": "ch3", "num": "৩", "title": "দশমিক ভগ্নাংশ", "pdf": "pdfs/class6/math/ch3.pdf"}
+    ],
+    "science": [
+      {"id": "ch1", "num": "১", "title": "জীবজগৎ", "pdf": "pdfs/class6/science/ch1.pdf"},
+      {"id": "ch2", "num": "২", "title": "উদ্ভিদের বাহ্যিক বৈশিষ্ট্য", "pdf": "pdfs/class6/science/ch2.pdf"}
+    ],
+    "bangla": [
+      {"id": "ch1", "num": "১", "title": "গল্প: বই পড়া", "pdf": "pdfs/class6/bangla/ch1.pdf"},
+      {"id": "ch2", "num": "২", "title": "কবিতা: বঙ্গবাণী", "pdf": "pdfs/class6/bangla/ch2.pdf"}
+    ],
+    "english": [
+      {"id": "ch1", "num": "1", "title": "Unit 1: Hello!", "pdf": "pdfs/class6/english/ch1.pdf"}
+    ]
+  },
+  "8": {
+    "math": [
+      {"id": "ch1", "num": "১", "title": "প্যাটার্ন", "pdf": "pdfs/class8/math/ch1.pdf"},
+      {"id": "ch2", "num": "২", "title": "মুনাফা", "pdf": "pdfs/class8/math/ch2.pdf"}
+    ],
+    "science": [
+      {"id": "ch1", "num": "১", "title": "প্রাণিজগতের শ্রেণিবিন্যাস", "pdf": "pdfs/class8/science/ch1.pdf"}
+    ]
+  }
+}

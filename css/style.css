@@ -236,3 +236,92 @@ footer {
     text-align: left;
     font-size: 1.4rem;
 }
+
+/* === Chapter List === */
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.chapter-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 15px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.25s ease;
+}
+
+.chapter-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 105, 62, 0.12);
+    transform: translateX(3px);
+}
+
+.chapter-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
+}
+
+.chapter-num {
+    width: 42px;
+    height: 42px;
+    background-color: rgba(0, 105, 62, 0.08);
+    color: var(--primary-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.chapter-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.read-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease;
+}
+
+.read-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+/* === Empty State === */
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--text-light);
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: #cccccc;
+    margin-bottom: 15px;
+}
