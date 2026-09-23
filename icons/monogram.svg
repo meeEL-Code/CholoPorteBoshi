@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E3A8A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0F2027;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4AF6A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C5A059;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Badge background (rounded square) -->
+  <rect x="2" y="2" width="60" height="60" rx="16" ry="16" fill="url(#badgeGrad)"/>
+
+  <!-- Subtle gold border -->
+  <rect x="2" y="2" width="60" height="60" rx="16" ry="16" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
+
+  <!-- Small book pages hint behind the letter -->
+  <path d="M 16 20 Q 22 17, 32 20 L 32 44 Q 22 41, 16 44 Z" fill="#FFFFFF" opacity="0.08"/>
+  <path d="M 48 20 Q 42 17, 32 20 L 32 44 Q 42 41, 48 44 Z" fill="#FFFFFF" opacity="0.08"/>
+
+  <!-- Bengali letter "প" — stylized -->
+  <g transform="translate(32, 33)">
+    <!-- Vertical stem -->
+    <rect x="-1.5" y="-14" width="3" height="22" fill="#FFFFFF" rx="1.5"/>
+    
+    <!-- Top loop of প -->
+    <path d="M -1.5 -12 Q -12 -14, -12 -4 Q -12 4, -1.5 4 L -1.5 0 Q -8 -1, -8 -4 Q -8 -9, -1.5 -8 Z" fill="#FFFFFF"/>
+    
+    <!-- Bottom hook -->
+    <path d="M -1.5 6 Q 6 6, 8 -1 Q 9 -3, 11 -1 L 11 1 Q 8 8, -1.5 8 Z" fill="url(#goldGrad)"/>
+  </g>
+
+  <!-- Small gold dot accent -->
+  <circle cx="46" cy="18" r="2" fill="url(#goldGrad)"/>
+</svg>
