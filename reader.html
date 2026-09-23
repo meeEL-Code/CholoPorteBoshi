@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>পড়ুন - চলো পড়তে বসি</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="reader-body">
+    <header class="reader-header">
+        <div class="container reader-header-content">
+            <a href="javascript:history.back()" class="back-btn reader-back" title="ফিরে যান">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="reader-title-wrap">
+                <h1 class="reader-title" id="readerTitle">লোড হচ্ছে...</h1>
+                <p class="reader-subtitle">চলো পড়তে বসি</p>
+            </div>
+            <button id="fullscreenBtn" class="reader-icon-btn" title="ফুলস্ক্রিন">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="reader-main">
+        <!-- Loading -->
+        <div id="loadingState" class="reader-loading">
+            <div class="spinner"></div>
+            <p>PDF লোড হচ্ছে...</p>
+        </div>
+
+        <!-- PDF Viewer -->
+        <div id="pdfContainer" class="pdf-container hidden">
+            <iframe id="pdfFrame" class="pdf-frame" src="" frameborder="0"></iframe>
+        </div>
+
+        <!-- Empty / Not Found -->
+        <div id="notFoundState" class="reader-empty hidden">
+            <div class="reader-empty-icon">
+                <i class="fas fa-file-pdf"></i>
+            </div>
+            <h2>PDF এখনো যুক্ত হয়নি</h2>
+            <p>এই চ্যাপ্টারের পড়ার ফাইল এখনো যোগ করা হয়নি। খুব শীঘ্রই আসছে!</p>
+            <div class="reader-empty-actions">
+                <a href="javascript:history.back()" class="btn-secondary">
+                    <i class="fas fa-arrow-left"></i> ফিরে যান
+                </a>
+                <a href="exam.html" class="btn-primary" style="width: auto; margin-top: 0; padding: 12px 24px; text-decoration: none;">
+                    <i class="fas fa-play"></i> পরীক্ষা দিন
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="readerToolbar" class="reader-toolbar hidden">
+        <button id="zoomOut" class="toolbar-btn" title="ছোট">
+            <i class="fas fa-search-minus"></i>
+        </button>
+        <button id="zoomIn" class="toolbar-btn" title="বড়">
+            <i class="fas fa-search-plus"></i>
+        </button>
+        <button id="downloadBtn" class="toolbar-btn" title="ডাউনলোড">
+            <i class="fas fa-download"></i>
+        </button>
+        <a id="newTabBtn" class="toolbar-btn" target="_blank" title="নতুন ট্যাবে খুলুন">
+            <i class="fas fa-external-link-alt"></i>
+        </a>
+    </div>
+
+    <script src="js/reader.js"></script>
+</body>
+</html>
