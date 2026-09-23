@@ -37,18 +37,11 @@ function loadMyClass() {
     if (!grid) return;
 
     const className = 'Class ' + (BANGLA[userClass] || userClass);
-    const classLabel = BANGLA[userClass] || userClass;
-
-    // Class description map
     const classDesc = {
-        '6': 'ষষ্ঠ শ্রেণি',
-        '7': 'সপ্তম শ্রেণি',
-        '8': 'অষ্টম শ্রেণি',
-        '9': 'নবম শ্রেণি',
-        '10': 'দশম শ্রেণি'
+        '6': 'ষষ্ঠ শ্রেণি', '7': 'সপ্তম শ্রেণি', '8': 'অষ্টম শ্রেণি',
+        '9': 'নবম শ্রেণি', '10': 'দশম শ্রেণি'
     };
 
-    // Group badge for 9-10
     let groupBadge = '';
     if ((userClass === '9' || userClass === '10') && user.group) {
         const groupNames = { science: 'বিজ্ঞান', commerce: 'ব্যবসায় শিক্ষা', arts: 'মানবিক' };
@@ -75,7 +68,6 @@ function loadMyClass() {
 
 function loadHomeStats() {
     const results = JSON.parse(localStorage.getItem('cpb_results') || '[]');
-
     const examCountEl = document.getElementById('examCountVal');
     if (examCountEl) examCountEl.textContent = toBanglaNumber(results.length);
 
