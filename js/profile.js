@@ -46,13 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target === drawer) drawer.classList.add('hidden');
     });
 
-    document.getElementById('editProfileBtn').addEventListener('click', () => {
-        if (confirm('প্রোফাইল পরিবর্তন করলে আবার নতুন করে সেটআপ করতে হবে। চালিয়ে যাবেন?')) {
-            localStorage.removeItem('cpb_user');
-            location.reload();
-        }
     });
-});
 
 function loadDrawerStats() {
     const results = JSON.parse(localStorage.getItem('cpb_results') || '[]');

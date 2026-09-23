@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>প্রোফাইল সম্পাদনা - পড়তে বসি</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0F2027">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="notes-header">
+        <div class="container notes-header-content">
+            <a href="javascript:history.back()" class="back-btn notes-back">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="notes-title-wrap">
+                <h1 class="notes-title">প্রোফাইল সম্পাদনা</h1>
+                <p class="notes-subtitle">তোমার তথ্য আপডেট করো</p>
+            </div>
+            <button id="saveBtn" class="notes-icon-btn" title="সেভ">
+                <i class="fas fa-check"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="container edit-profile-main">
+        <form id="editForm" class="edit-form">
+            <!-- Avatar -->
+            <section class="edit-section">
+                <h3 class="edit-label"><i class="fas fa-user-circle"></i> অ্যাভাটার</h3>
+                <div id="avatarGrid" class="avatar-grid"></div>
+            </section>
+
+            <!-- Name -->
+            <section class="edit-section">
+                <h3 class="edit-label"><i class="fas fa-user"></i> নাম</h3>
+                <input type="text" id="editName" class="modal-input" placeholder="তোমার নাম" maxlength="30">
+            </section>
+
+            <!-- School -->
+            <section class="edit-section">
+                <h3 class="edit-label"><i class="fas fa-school"></i> স্কুল</h3>
+                <input type="text" id="editSchool" class="modal-input" placeholder="স্কুলের নাম" maxlength="80">
+            </section>
+
+            <!-- Class -->
+            <section class="edit-section">
+                <h3 class="edit-label"><i class="fas fa-graduation-cap"></i> ক্লাস</h3>
+                <select id="editClass" class="modal-input">
+                    <option value="6">Class 6 (ষষ্ঠ)</option>
+                    <option value="7">Class 7 (সপ্তম)</option>
+                    <option value="8">Class 8 (অষ্টম)</option>
+                    <option value="9">Class 9 (নবম)</option>
+                    <option value="10">Class 10 (দশম)</option>
+                </select>
+            </section>
+
+            <!-- Group (for 9-10) -->
+            <section class="edit-section" id="groupSection" style="display:none;">
+                <h3 class="edit-label"><i class="fas fa-layer-group"></i> বিভাগ</h3>
+                <select id="editGroup" class="modal-input">
+                    <option value="">-- বিভাগ --</option>
+                    <option value="science">বিজ্ঞান</option>
+                    <option value="commerce">ব্যবসায় শিক্ষা</option>
+                    <option value="arts">মানবিক</option>
+                </select>
+            </section>
+
+            <!-- Save Button -->
+            <button type="submit" class="btn-primary" style="margin-top: 25px;">
+                <i class="fas fa-save"></i> পরিবর্তন সেভ করুন
+            </button>
+
+            <!-- Reset -->
+            <button type="button" id="resetBtn" class="btn-secondary" style="margin-top: 10px; color: #dc2626;">
+                <i class="fas fa-trash-alt"></i> সব ডেটা রিসেট করুন
+            </button>
+        </form>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-brand">
+                <img src="icons/navbar-icon.svg" alt="logo" class="footer-logo">
+                <span class="footer-name">পড়তে বসি</span>
+            </div>
+            <p class="footer-text">&copy; 2026-Present. পড়তে বসি। সর্বস্বত্ব সংরক্ষিত।</p>
+            <p class="footer-sub">সহজ পড়াশোনা, সবার জন্য <i class="fas fa-heart"></i></p>
+        </div>
+    </footer>
+
+    <script src="js/onboarding.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/edit-profile.js"></script>
+    <script src="js/pwa.js"></script>
+</body>
+</html>

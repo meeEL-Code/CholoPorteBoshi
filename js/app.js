@@ -81,7 +81,7 @@ function loadMyClass() {
         '</a>' +
         '<p class="my-class-hint">' +
             '<i class="fas fa-info-circle"></i> ' +
-            'ক্লাস পরিবর্তন করতে <strong>প্রোফাইল</strong> → <strong>প্রোফাইল পরিবর্তন</strong> এ যান' +
+            'ক্লাস পরিবর্তন করতে <strong>প্রোফাইল</strong> → <strong>প্রোফাইল সম্পাদনা</strong> এ যান' +
         '</p>';
 }
 

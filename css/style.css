@@ -3382,3 +3382,57 @@ a:not(.btn-primary):not(.btn-secondary):not(.action-btn):not(.fab-btn) {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(300%); }
 }
+
+/* ============================================
+   EDIT PROFILE PAGE
+   ============================================ */
+.edit-profile-main {
+    padding-top: 15px;
+    padding-bottom: 40px;
+}
+
+.edit-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.edit-section {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-left: 4px solid var(--primary-color, #1E3A8A);
+}
+
+.edit-label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary-color, #1E3A8A);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.edit-label i {
+    width: 28px;
+    height: 28px;
+    background-color: rgba(30, 58, 138, 0.08);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+}
+
+.avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 5px;
+}
+
+@media (max-width: 400px) {
+    .avatar-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+}
