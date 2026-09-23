@@ -1,90 +1,67 @@
-// ===== PB Mentor — Academic Assistant =====
+// ===== PB Mentor — Academic Assistant (Page Version) =====
 
 // ===== Knowledge Base (Direct Answers) =====
-// Format: "keyword": "answer"
 const KNOWLEDGE_BASE = {
-    // Math formulas
-    'পিথাগোরাস': 'পিথাগোরাসের সূত্র: <b>a² + b² = c²</b><br>যেখানে c = অতিভুজ, a ও b = অন্য দুই বাহু।',
-    'pythagoras': 'পিথাগোরাসের সূত্র: <b>a² + b² = c²</b><br>সমকোণী ত্রিভুজে অতিভুজ² = অপর দুই বাহুর বর্গের সমষ্টি।',
-    'বৃত্তের ক্ষেত্রফল': 'বৃত্তের ক্ষেত্রফল = <b>πr²</b><br>π ≈ ৩.১৪১৬, r = ব্যাসার্ধ।',
-    'বৃত্তের পরিধি': 'বৃত্তের পরিধি = <b>২πr</b><br>π ≈ ৩.১৪১৬, r = ব্যাসার্ধ।',
-    'ত্রিভুজের ক্ষেত্রফল': 'ত্রিভুজের ক্ষেত্রফল = <b>১/২ × ভূমি × উচ্চতা</b>',
-    'আয়তক্ষেত্রের ক্ষেত্রফল': 'আয়তক্ষেত্রের ক্ষেত্রফল = <b>দৈর্ঘ্য × প্রস্থ</b>',
-    'বর্গের ক্ষেত্রফল': 'বর্গের ক্ষেত্রফল = <b>বাহু²</b>',
-    'গড়': 'গড় = <b>সব মানের সমষ্টি ÷ উপাত্তের সংখ্যা</b>',
-    'শতকরা': 'শতকরা = <b>(অংশ ÷ সম্পূর্ণ) × ১০০%</b>',
-    'সরল সুদ': 'সরল সুদ = <b>(আসল × সময় × সুদের হার) ÷ ১০০</b>',
-    'গসাগু': 'গ.সা.গু = গরিষ্ঠ সাধারণ গুণনীয়ক<br>দুই বা ততোধিক সংখ্যার সবচেয়ে বড় সাধারণ উৎপাদক।',
-    'লসাগু': 'ল.সা.গু = লঘিষ্ঠ সাধারণ গুণিতক<br>দুই বা ততোধিক সংখ্যার সবচেয়ে ছোট সাধারণ গুণিতক।',
+    // Math
+    'পিথাগোরাস': '<b>পিথাগোরাসের সূত্র</b><br>সমকোণী ত্রিভুজে: <b>a² + b² = c²</b><br>যেখানে c = অতিভুজ, a ও b = অন্য দুই বাহু।<br><br>উদাহরণ: a=3, b=4 হলে c=5।',
+    'pythagoras': '<b>Pythagoras Theorem</b><br>In a right triangle: <b>a² + b² = c²</b><br>c = hypotenuse, a & b = other two sides.',
+    'বৃত্তের ক্ষেত্রফল': '<b>বৃত্তের ক্ষেত্রফল = πr²</b><br>π ≈ ৩.১৪১৬<br>r = ব্যাসার্ধ<br><br>উদাহরণ: r=7 হলে ক্ষেত্রফল = ২২/৭ × ৪৯ = ১৫৪ বর্গ একক।',
+    'বৃত্তের পরিধি': '<b>বৃত্তের পরিধি = ২πr</b><br>π ≈ ৩.১৪১৬<br>r = ব্যাসার্ধ<br><br>উদাহরণ: r=7 হলে পরিধি = ২ × ২২/৭ × ৭ = ৪৪ একক।',
+    'ত্রিভুজের ক্ষেত্রফল': '<b>ত্রিভুজের ক্ষেত্রফল = ½ × ভূমি × উচ্চতা</b><br><br>উদাহরণ: ভূমি=১০, উচ্চতা=৬ হলে ক্ষেত্রফল = ½×১০×৬ = ৩০ বর্গ একক।',
+    'আয়তক্ষেত্রের ক্ষেত্রফল': '<b>আয়তক্ষেত্রের ক্ষেত্রফল = দৈর্ঘ্য × প্রস্থ</b><br><b>পরিসীমা = ২(দৈর্ঘ্য + প্রস্থ)</b>',
+    'বর্গের ক্ষেত্রফল': '<b>বর্গের ক্ষেত্রফল = বাহু²</b><br><b>পরিসীমা = ৪ × বাহু</b>',
+    'গড়': '<b>গড় = সব মানের সমষ্টি ÷ উপাত্তের সংখ্যা</b><br><br>উদাহরণ: ২, ৪, ৬, ৮ → গড় = (২+৪+৬+৮)/৪ = ৫',
+    'মধ্যক': '<b>মধ্যক</b> = উপাত্ত সাজিয়ে মাঝের মান<br>জোড় সংখ্যক হলে মাঝের দুইটির গড়।',
+    'প্রচুরক': '<b>প্রচুরক</b> = সবচেয়ে বেশিবার আসা মান',
+    'শতকরা': '<b>শতকরা = (অংশ ÷ সম্পূর্ণ) × ১০০%</b><br><br>উদাহরণ: ৫০ এর ২০% = ৫০ × ২০/১০০ = ১০',
+    'সরল সুদ': '<b>সরল সুদ = (আসল × সময় × হার) ÷ ১০০</b><br><br>উদাহরণ: ১০০০ টাকার ২ বছরে ৫% = ১০০০×২×৫/১০০ = ১০০ টাকা',
+    'গসাগু': '<b>গ.সা.গু</b> = গরিষ্ঠ সাধারণ গুণনীয়ক<br>দুই বা ততোধিক সংখ্যার সবচেয়ে বড় সাধারণ উৎপাদক।<br><br>উদাহরণ: ১২ ও ১৮ → গ.সা.গু = ৬',
+    'লসাগু': '<b>ল.সা.গু</b> = লঘিষ্ঠ সাধারণ গুণিতক<br>দুই বা ততোধিক সংখ্যার সবচেয়ে ছোট সাধারণ গুণিতক।<br><br>উদাহরণ: ৪ ও ৬ → ল.সা.গু = ১২',
 
     // Science
-    'পানির সূত্র': 'পানির রাসায়নিক সংকেত: <b>H₂O</b><br>২টি হাইড্রোজেন + ১টি অক্সিজেন পরমাণু।',
-    'সালোকসংশ্লেষ': 'সালোকসংশ্লেষ: সবুজ উদ্ভিদ সূর্যের আলো, CO₂ ও পানি ব্যবহার করে গ্লুকোজ ও O₂ তৈরি করে।',
-    'ফটোসিন্থেসিস': 'Photosynthesis: গ্লুকোজ তৈরি প্রক্রিয়া<br>৬CO₂ + ৬H₂O → C₆H₁₂O₆ + ৬O₂',
-    'নিউটনের প্রথম সূত্র': 'নিউটনের ১ম সূত্র: বাহ্যিক বল প্রয়োগ না করলে স্থির বস্তু স্থির থাকবে, চলমান বস্তু সমবেগে সরলপথে চলবে।',
-    'নিউটনের দ্বিতীয় সূত্র': 'নিউটনের ২য় সূত্র: <b>F = ma</b><br>বল = ভর × ত্বরণ।',
+    'পানির সূত্র': '<b>পানির রাসায়নিক সংকেত: H₂O</b><br>২টি হাইড্রোজেন + ১টি অক্সিজেন পরমাণু।',
+    'সালোকসংশ্লেষ': '<b>সালোকসংশ্লেষ</b><br>সবুজ উদ্ভিদ সূর্যের আলো, CO₂ ও পানি ব্যবহার করে গ্লুকোজ ও O₂ তৈরি করে।<br><br>সমীকরণ: ৬CO₂ + ৬H₂O → C₆H₁₂O₆ + ৬O₂',
+    'নিউটনের প্রথম সূত্র': '<b>নিউটনের প্রথম সূত্র</b><br>বাহ্যিক বল প্রয়োগ না করলে —<br>• স্থির বস্তু স্থির থাকবে<br>• চলমান বস্তু সমবেগে সরলপথে চলবে<br><br>একে জড়তার সূত্রও বলা হয়।',
+    'নিউটনের দ্বিতীয় সূত্র': '<b>নিউটনের দ্বিতীয় সূত্র</b><br><b>F = ma</b><br>বল = ভর × ত্বরণ',
+    'নিউটনের তৃতীয় সূত্র': '<b>নিউটনের তৃতীয় সূত্র</b><br>প্রতিটি ক্রিয়ার সমান ও বিপরীত প্রতিক্রিয়া আছে।',
+    'কোষ': '<b>কোষ (Cell)</b><br>জীবদেহের ক্ষুদ্রতম একক।<br><br>দুই প্রকার: প্রোক্যারিওটিক ও ইউক্যারিওটিক।<br>উদ্ভিদ কোষে সেলুলোজ দেয়াল ও ক্লোরোপ্লাস্ট থাকে।',
+    'কোষ বিভাজন': '<b>কোষ বিভাজন ৩ প্রকার:</b><br>১. মাইটোসিস — দেহকোষে<br>২. মায়োসিস — জননকোষে<br>৩. অ্যামাইটোসিস — সরল বিভাজন',
 
     // Study tips
-    'পড়ার টিপস': 'পড়ার সেরা টিপস:<br>১. প্রতিদিন নির্দিষ্ট সময়ে পড়ো<br>২. ৫০ মিনিট পড়ে ১০ মিনিট বিশ্রাম<br>৩. নোট নিজের ভাষায় লেখো<br>৪. প্রতিদিন ২০টি MCQ করো<br>৫. ঘুমানোর আগে রিভিশন দাও',
-    'মনে রাখার উপায়': 'মনে রাখার টিপস:<br>১. ছবি বা মাইন্ড ম্যাপ বানাও<br>২. জোরে পড়ো<br>৩. বন্ধুকে শেখাও<br>৪. নির্দিষ্ট বিরতিতে রিভিশন দাও',
-
-    // General
-    'ধন্যবাদ': 'স্বাগতম! পড়াশোনায় এগিয়ে যাও!',
-    'শুভেচ্ছা': 'তোমাকেও শুভেচ্ছা! কী সাহায্য করতে পারি?'
+    'পড়ার টিপস': '<b>পড়ার সেরা টিপস</b><br>১. প্রতিদিন নির্দিষ্ট সময়ে পড়ো<br>২. ২৫ মিনিট পড়ে ৫ মিনিট বিশ্রাম (Pomodoro)<br>৩. নোট নিজের ভাষায় লেখো<br>৪. প্রতিদিন ২০টি MCQ করো<br>৫. ঘুমানোর আগে রিভিশন দাও<br>৬. যথেষ্ট ঘুমাও',
+    'মনে রাখার': '<b>মনে রাখার টিপস</b><br>১. ছবি বা মাইন্ড ম্যাপ বানাও<br>২. জোরে পড়ো — শুনে মনে থাকে<br>৩. বন্ধুকে শেখাও<br>৪. নির্দিষ্ট বিরতিতে রিভিশন দাও<br>৫. গল্প বানিয়ে পড়ো',
+    'সময়': '<b>সময় ব্যবস্থাপনা</b><br>• টু-ডু লিস্ট বানাও<br>• কঠিন কাজ সকালে করো<br>• ফোন দূরে রাখো<br>• প্রতি সপ্তাহে টার্গেট সেট করো',
 };
 
-// ===== Bot Responses =====
+// ===== Bot Response =====
 function getBotResponse(input) {
     const msg = input.toLowerCase().trim();
 
-    // 1. First: Knowledge base direct answers
+    // 1. Knowledge base
     for (const key in KNOWLEDGE_BASE) {
         if (msg.includes(key.toLowerCase())) {
-            return KNOWLEDGE_BASE[key];
+            return { text: KNOWLEDGE_BASE[key] };
         }
     }
 
-    // 2. Navigation commands
+    // 2. Navigation
     if (matches(msg, ['আজকের পরীক্ষা', 'পরীক্ষা', 'exam', 'কুইজ', 'quiz'])) {
-        return {
-            text: 'পরীক্ষা পেজ খুলছি... শুভকামনা!',
-            navigate: 'exam.html'
-        };
+        return { text: 'পরীক্ষা পেজ খুলছি... শুভকামনা!', navigate: 'exam.html' };
     }
-
     if (matches(msg, ['সিলেবাস', 'syllabus', 'পাঠ্যক্রম'])) {
-        return {
-            text: 'সিলেবাস পেজ খুলছি...',
-            navigate: 'syllabus.html'
-        };
+        return { text: 'সিলেবাস পেজ খুলছি...', navigate: 'syllabus.html' };
     }
-
     if (matches(msg, ['অগ্রগতি', 'progress', 'রিপোর্ট'])) {
-        return {
-            text: 'তোমার অগ্রগতি দেখাচ্ছি...',
-            navigate: 'progress.html'
-        };
+        return { text: 'তোমার অগ্রগতি দেখাচ্ছি...', navigate: 'progress.html' };
     }
-
     if (matches(msg, ['নোট', 'notes'])) {
-        return {
-            text: 'নোট পেজ খুলছি...',
-            navigate: 'notes.html'
-        };
+        return { text: 'নোট পেজ খুলছি...', navigate: 'notes.html' };
     }
-
     if (matches(msg, ['প্রোফাইল', 'profile'])) {
-        return {
-            text: 'প্রোফাইল খুলছি...',
-            action: 'openProfile'
-        };
+        return { text: 'প্রোফাইল পেজ খুলছি...', navigate: 'edit-profile.html' };
     }
-
     if (matches(msg, ['হোম', 'home'])) {
-        return {
-            text: 'হোম পেজে যাচ্ছি...',
-            navigate: 'index.html'
-        };
+        return { text: 'হোম পেজে যাচ্ছি...', navigate: 'index.html' };
     }
 
     // 3. Class navigation
@@ -93,77 +70,56 @@ function getBotResponse(input) {
         const num = classMatch[1] || classMatch[2];
         const map = {'৬':'6','৭':'7','৮':'8','৯':'9','১০':'10'};
         const cls = map[num] || num;
-        return {
-            text: 'Class ' + toBangla(cls) + ' এর বিষয়গুলো দেখাচ্ছি...',
-            navigate: 'class.html?class=' + cls
-        };
+        return { text: 'Class ' + toBangla(cls) + ' এর বিষয়গুলো দেখাচ্ছি...', navigate: 'class.html?class=' + cls };
     }
 
     // 4. User info
     if (matches(msg, ['স্ট্রিক', 'streak'])) {
         const results = JSON.parse(localStorage.getItem('cpb_results') || '[]');
         const streak = calcStreak(results);
-        return 'তোমার স্ট্রিক: <b>' + toBangla(streak) + ' দিন</b>' +
-               (streak > 0 ? '<br>চালিয়ে যাও!' : '<br>আজই শুরু করো!');
+        return { text: 'তোমার স্ট্রিক: <b>' + toBangla(streak) + ' দিন</b>' + (streak > 0 ? '<br>চালিয়ে যাও!' : '<br>আজই শুরু করো!') };
     }
-
     if (matches(msg, ['স্কোর', 'score', 'নম্বর'])) {
         const results = JSON.parse(localStorage.getItem('cpb_results') || '[]');
-        if (results.length === 0) {
-            return 'এখনো কোনো পরীক্ষা দাওনি। <b>"পরীক্ষা"</b> লিখে শুরু করো!';
-        }
+        if (results.length === 0) return { text: 'এখনো কোনো পরীক্ষা দাওনি। <b>"পরীক্ষা"</b> লিখে শুরু করো!' };
         let best = 0;
         results.forEach(r => {
             const p = r.total > 0 ? (r.correct / r.total) * 100 : 0;
             if (p > best) best = p;
         });
-        return 'তোমার পরিসংখ্যান:<br>পরীক্ষা: <b>' + toBangla(results.length) + 'টি</b><br>সেরা স্কোর: <b>' + toBangla(Math.round(best)) + '%</b>';
+        return { text: 'তোমার পরিসংখ্যান:<br>পরীক্ষা: <b>' + toBangla(results.length) + 'টি</b><br>সেরা স্কোর: <b>' + toBangla(Math.round(best)) + '%</b>' };
     }
-
     if (matches(msg, ['আমার নাম', 'নাম কী'])) {
         const user = JSON.parse(localStorage.getItem('cpb_user') || '{}');
-        return user.name ? 'তোমার নাম: <b>' + user.name + '</b>' : 'তোমার নাম এখনো সেট করা হয়নি।';
+        return { text: user.name ? 'তোমার নাম: <b>' + user.name + '</b>' : 'তোমার নাম এখনো সেট করা হয়নি।' };
     }
 
     // 5. Greetings
-    if (matches(msg, ['হ্যালো', 'hello', 'হাই', 'hi', 'আসসালামু', 'সালাম'])) {
+    if (matches(msg, ['হ্যালো', 'hello', 'হাই', 'hi', 'hey', 'আসসালামু', 'সালাম'])) {
         const user = JSON.parse(localStorage.getItem('cpb_user') || '{}');
-        const name = user.name ? ' ' + user.name : '';
-        return 'আসসালামু আলাইকুম' + name + '!<br>কী সাহায্য করতে পারি?';
+        const name = user.name ? ', ' + user.name : '';
+        return { text: 'ওয়ালাইকুম আসসালাম' + name + '!<br>কী সাহায্য করতে পারি?' };
     }
-
     if (matches(msg, ['ধন্যবাদ', 'thanks', 'thank you'])) {
-        return 'স্বাগতম! পড়াশোনায় এগিয়ে যাও!';
+        return { text: 'স্বাগতম! পড়াশোনায় এগিয়ে যাও!' };
     }
-
-    if (matches(msg, ['সাহায্য', 'help', 'কমান্ড'])) {
-        return 'আমি যা করতে পারি:<br><br>' +
-               '<b>উত্তর দিতে পারি:</b><br>' +
-               '- "পিথাগোরাসের সূত্র কী?"<br>' +
-               '- "বৃত্তের ক্ষেত্রফল কীভাবে?"<br>' +
-               '- "নিউটনের সূত্র"<br>' +
-               '- "পড়ার টিপস"<br><br>' +
-               '<b>Navigate করতে পারি:</b><br>' +
-               '- "পরীক্ষা" / "সিলেবাস"<br>' +
-               '- "অগ্রগতি" / "প্রোফাইল"<br>' +
-               '- "ক্লাস ৯"';
+    if (matches(msg, ['সাহায্য', 'help', 'কমান্ড', 'কী করতে পারো'])) {
+        return { text: 'আমি যা করতে পারি:<br><br><b>উত্তর দিতে পারি:</b><br>• "পিথাগোরাসের সূত্র কী?"<br>• "বৃত্তের ক্ষেত্রফল কীভাবে?"<br>• "নিউটনের সূত্র কী?"<br>• "কোষ কী?"<br>• "পড়ার টিপস দাও"<br><br><b>Navigate করতে পারি:</b><br>• "পরীক্ষা" / "সিলেবাস"<br>• "অগ্রগতি" / "প্রোফাইল"<br>• "ক্লাস ৯"' };
     }
 
     // 6. Motivational
     if (matches(msg, ['পড়তে মন চায় না', 'পড়তে ইচ্ছা করে না', 'পড়তে পারি না'])) {
-        return 'চিন্তা করো না!<br>ছোট করে শুরু করো — মাত্র ৫ মিনিট।<br>একবার শুরু করলে আর থামতে মন চাইবে না!';
+        return { text: 'চিন্তা করো না!<br>ছোট করে শুরু করো — মাত্র ৫ মিনিট।<br>একবার শুরু করলে আর থামতে মন চাইবে না!' };
     }
-
     if (matches(msg, ['কঠিন লাগছে', 'বুঝতে পারছি না'])) {
-        return 'কঠিন লাগলে চ্যাপ্টার ভেঙে ভেঙে পড়ো।<br>নোট পড়ো → MCQ করো → আবার পড়ো।<br>তুমি পারবে ইনশাআল্লাহ!';
+        return { text: 'কঠিন লাগলে চ্যাপ্টার ভেঙে ভেঙে পড়ো।<br>নোট পড়ো → MCQ করো → আবার পড়ো।<br>তুমি পারবে ইনশাআল্লাহ!' };
     }
-
     if (matches(msg, ['মোটিভেশন', 'অনুপ্রেরণা'])) {
-        return 'সাফল্য একদিনে আসে না।<br>প্রতিদিন একটু একটু করে এগোলেই একদিন অনেক দূর পৌঁছে যাবে!';
+        return { text: 'সাফল্য একদিনে আসে না।<br>প্রতিদিন একটু একটু করে এগোলেই একদিন অনেক দূর পৌঁছে যাবে!' };
     }
 
-    // 7. Default fallback — AI-style
-    return 'এটা আমার কাছে জমা রাখলাম।<br>আপাতত "সাহায্য" লিখে দেখো কী কী পারি।<br>অথবা সরাসরি সিলেবাস, পরীক্ষা বা নোটে যাও।';
+    // 7. Fallback
+    return { text: 'এটা আমার কাছে জমা রাখলাম।<br>আপাতত <b>"সাহায্য"</b> লিখে দেখো কী কী পারি।<br>অথবা সিলেবাস, পরীক্ষা বা নোটে যাও।' };
 }
 
 // ===== Helpers =====
@@ -195,112 +151,115 @@ function toBangla(num) {
     return num.toString().split('').map(x => d[parseInt(x)] ?? x).join('');
 }
 
-// ===== UI =====
-function initBot() {
-    const fab = document.createElement('button');
-    fab.id = 'botFab';
-    fab.className = 'bot-fab';
-    fab.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>';
-    document.body.appendChild(fab);
+// ===== Page-specific init (only on ai.html) =====
+function initAIPage() {
+    const messagesEl = document.getElementById('aiMessages');
+    const inputEl = document.getElementById('aiInput');
+    const sendBtn = document.getElementById('aiSend');
+    const quickEl = document.getElementById('aiQuick');
+    const clearBtn = document.getElementById('clearChat');
 
-    const win = document.createElement('div');
-    win.id = 'botWindow';
-    win.className = 'bot-window hidden';
-    win.innerHTML =
-        '<div class="bot-header">' +
-            '<div class="bot-header-info">' +
-                '<div class="bot-avatar">PM</div>' +
-                '<div>' +
-                    '<h4>PB Mentor</h4>' +
-                    '<span class="bot-status"><i class="fas fa-circle"></i> অনলাইন</span>' +
-                '</div>' +
-            '</div>' +
-            '<button class="bot-close" id="botClose">×</button>' +
-        '</div>' +
-        '<div class="bot-messages" id="botMessages"></div>' +
-        '<div class="bot-input-row">' +
-            '<input type="text" id="botInput" class="bot-input" placeholder="কিছু জিজ্ঞেস করো..." autocomplete="off">' +
-            '<button id="botSend" class="bot-send">' +
-                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>' +
-            '</button>' +
-        '</div>' +
-        '<div class="bot-quick-actions" id="botQuick">' +
-            '<button class="bot-quick-btn" data-msg="পিথাগোরাসের সূত্র কী?">সূত্র</button>' +
-            '<button class="bot-quick-btn" data-msg="পড়ার টিপস">টিপস</button>' +
-            '<button class="bot-quick-btn" data-msg="আমার স্ট্রিক কত?">স্ট্রিক</button>' +
-            '<button class="bot-quick-btn" data-msg="সাহায্য">সাহায্য</button>' +
-        '</div>';
-    document.body.appendChild(win);
+    if (!messagesEl) return;
 
-    setTimeout(() => {
-        addBotMessage('আসসালামু আলাইকুম! আমি <b>PB Mentor</b>।<br>পড়াশোনার যেকোনো প্রশ্ন করো — উত্তর দেব, শুধু পেজে পাঠাব না।');
-    }, 500);
+    // Load chat history from localStorage
+    let chatHistory = JSON.parse(localStorage.getItem('cpb_mentor_chat') || '[]');
 
-    fab.addEventListener('click', () => {
-        win.classList.toggle('hidden');
-        fab.classList.toggle('open');
-        if (!win.classList.contains('hidden')) document.getElementById('botInput').focus();
-    });
+    if (chatHistory.length === 0) {
+        // Welcome message
+        addMessage('bot', 'হাই! আমি <b>PB Mentor</b>।<br>তোমার কি সাহায্য করতে পারি?');
+        chatHistory.push({ role: 'bot', text: 'হাই! আমি <b>PB Mentor</b>।<br>তোমার কি সাহায্য করতে পারি?' });
+        saveChat(chatHistory);
+    } else {
+        // Restore history
+        chatHistory.forEach(m => addMessage(m.role, m.text, false));
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
 
-    document.getElementById('botClose').addEventListener('click', () => {
-        win.classList.add('hidden');
-        fab.classList.remove('open');
-    });
+    sendBtn.addEventListener('click', send);
+    inputEl.addEventListener('keypress', e => { if (e.key === 'Enter') send(); });
 
-    document.getElementById('botSend').addEventListener('click', sendMessage);
-    document.getElementById('botInput').addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') sendMessage();
-    });
-
-    document.querySelectorAll('.bot-quick-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.getElementById('botInput').value = btn.dataset.msg;
-            sendMessage();
+    if (quickEl) {
+        quickEl.querySelectorAll('.ai-quick-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                inputEl.value = btn.dataset.msg;
+                send();
+            });
         });
-    });
-}
+    }
 
-function sendMessage() {
-    const input = document.getElementById('botInput');
-    const msg = input.value.trim();
-    if (!msg) return;
-    addUserMessage(msg);
-    input.value = '';
-    setTimeout(() => {
-        const reply = getBotResponse(msg);
-        if (typeof reply === 'string') {
-            addBotMessage(reply);
-        } else {
-            addBotMessage(reply.text);
-            if (reply.navigate) setTimeout(() => location.href = reply.navigate, 800);
-            if (reply.action === 'openProfile') {
-                const fab = document.getElementById('profileFab');
-                if (fab) fab.click();
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            if (confirm('চ্যাট রিসেট করবে?')) {
+                localStorage.removeItem('cpb_mentor_chat');
+                location.reload();
             }
+        });
+    }
+
+    function send() {
+        const msg = inputEl.value.trim();
+        if (!msg) return;
+
+        addMessage('user', msg);
+        chatHistory.push({ role: 'user', text: msg });
+        inputEl.value = '';
+
+        // Typing indicator
+        const typingEl = showTyping();
+
+        setTimeout(() => {
+            typingEl.remove();
+            const reply = getBotResponse(msg);
+            if (typeof reply === 'string') {
+                addMessage('bot', reply);
+                chatHistory.push({ role: 'bot', text: reply });
+            } else {
+                addMessage('bot', reply.text);
+                chatHistory.push({ role: 'bot', text: reply.text });
+                if (reply.navigate) {
+                    setTimeout(() => location.href = reply.navigate, 1000);
+                }
+            }
+            saveChat(chatHistory);
+        }, 700);
+    }
+
+    function saveChat(h) {
+        // Keep last 50 messages
+        if (h.length > 50) h = h.slice(-50);
+        localStorage.setItem('cpb_mentor_chat', JSON.stringify(h));
+    }
+
+    function addMessage(role, text, save = true) {
+        const el = document.createElement('div');
+        el.className = 'ai-msg ai-msg-' + role;
+        if (role === 'bot') {
+            el.innerHTML = '<div class="ai-avatar">PBM</div><div class="ai-bubble">' + text + '</div>';
+        } else {
+            el.innerHTML = '<div class="ai-bubble">' + escapeHtml(text) + '</div>';
         }
-    }, 600);
-}
+        messagesEl.appendChild(el);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
 
-function addUserMessage(text) {
-    const msgs = document.getElementById('botMessages');
-    const el = document.createElement('div');
-    el.className = 'bot-msg bot-msg-user';
-    el.textContent = text;
-    msgs.appendChild(el);
-    msgs.scrollTop = msgs.scrollHeight;
-}
+    function showTyping() {
+        const el = document.createElement('div');
+        el.className = 'ai-msg ai-msg-bot';
+        el.innerHTML = '<div class="ai-avatar">PBM</div><div class="ai-bubble ai-typing"><span></span><span></span><span></span></div>';
+        messagesEl.appendChild(el);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+        return el;
+    }
 
-function addBotMessage(text) {
-    const msgs = document.getElementById('botMessages');
-    const el = document.createElement('div');
-    el.className = 'bot-msg bot-msg-bot';
-    el.innerHTML = text;
-    msgs.appendChild(el);
-    msgs.scrollTop = msgs.scrollHeight;
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
 }
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initBot);
+    document.addEventListener('DOMContentLoaded', initAIPage);
 } else {
-    initBot();
+    initAIPage();
 }

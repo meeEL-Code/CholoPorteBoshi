@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PB Mentor - পড়তে বসি</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0F2027">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="ai-page-body">
+    <header class="notes-header">
+        <div class="container notes-header-content">
+            <a href="index.html" class="back-btn notes-back" title="ফিরে যান">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="notes-title-wrap">
+                <h1 class="notes-title">PB Mentor</h1>
+                <p class="notes-subtitle"><i class="fas fa-circle" style="color: #10B981; font-size: 0.6em;"></i> অনলাইন</p>
+            </div>
+            <button id="clearChat" class="notes-icon-btn" title="চ্যাট রিসেট">
+                <i class="fas fa-redo"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="ai-main">
+        <div class="ai-messages" id="aiMessages"></div>
+
+        <div class="ai-input-wrap">
+            <div class="ai-quick-actions" id="aiQuick">
+                <button class="ai-quick-btn" data-msg="পিথাগোরাসের সূত্র কী?">সূত্র জানো?</button>
+                <button class="ai-quick-btn" data-msg="পড়ার টিপস দাও">পড়ার টিপস</button>
+                <button class="ai-quick-btn" data-msg="আমার স্ট্রিক কত?">আমার স্ট্রিক</button>
+                <button class="ai-quick-btn" data-msg="বৃত্তের ক্ষেত্রফল কীভাবে?">বৃত্তের ক্ষেত্রফল</button>
+                <button class="ai-quick-btn" data-msg="সাহায্য">সাহায্য</button>
+            </div>
+            <div class="ai-input-row">
+                <input type="text" id="aiInput" class="ai-input" placeholder="কিছু জিজ্ঞেস করো..." autocomplete="off">
+                <button id="aiSend" class="ai-send">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/onboarding.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/bot.js"></script>
+    <script src="js/pwa.js"></script>
+</body>
+</html>
