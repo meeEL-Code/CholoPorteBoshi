@@ -1,38 +1,18 @@
 {
-  "name": "চলো পড়তে বসি — শিক্ষা অ্যাপ",
-  "short_name": "চলো পড়তে বসি",
+  "name": "পড়তে বসি — শিক্ষা অ্যাপ",
+  "short_name": "পড়তে বসি",
   "description": "Class 6-10 শিক্ষার্থীদের জন্য সহজ পড়াশোনা, নোট, MCQ ও পরীক্ষা",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#00693E",
-  "theme_color": "#00693E",
+  "background_color": "#0F2027",
+  "theme_color": "#0F2027",
   "lang": "bn",
   "icons": [
-    {
-      "src": "icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
   ]
 }

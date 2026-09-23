@@ -2019,3 +2019,329 @@ select.modal-input { cursor: pointer; }
 }
 
 .syllabus-empty-chapters i { margin-right: 6px; }
+
+/* ============================================
+   THEME: ACADEMIC TRUST
+   Oxford Navy + Academic Blue + Scholastic Gold + Emerald
+   ============================================ */
+
+:root {
+    --primary-color: #1E3A8A;      /* Academic Blue */
+    --primary-dark: #1E40AF;
+    --accent-gold: #C5A059;
+    --accent-green: #059669;
+    --header-bg: #0F2027;          /* Oxford Slate */
+    --bg-color: #F8FAFC;
+    --surface-color: #FFFFFF;
+    --text-color: #1E293B;
+    --text-light: #64748B;
+    --border-color: #E2E8F0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Header: Oxford Navy with Gold underline */
+header,
+.notes-header,
+.reader-header {
+    background-color: var(--header-bg) !important;
+    border-bottom: 3px solid var(--accent-gold) !important;
+}
+
+/* Streak flame — gold instead of green */
+.home-stat:first-child .home-stat-icon,
+.stat-card:first-child .stat-card-icon {
+    background-color: rgba(197, 160, 89, 0.15) !important;
+    color: var(--accent-gold) !important;
+}
+
+.home-stat:first-child {
+    border-top-color: var(--accent-gold) !important;
+}
+
+/* Academic Blue buttons */
+.btn-primary,
+.modal-btn-primary,
+.action-exam,
+.read-btn {
+    background-color: var(--primary-color) !important;
+}
+
+.btn-primary:hover,
+.modal-btn-primary:hover:not(:disabled),
+.action-exam:hover {
+    background-color: var(--primary-dark) !important;
+}
+
+/* Emerald progress */
+.progress-fill,
+.syllabus-progress .progress-fill {
+    background-color: var(--accent-green) !important;
+}
+
+/* Gold streak badge & motivational accents */
+.streak-badge,
+.gold-accent {
+    color: var(--accent-gold) !important;
+}
+
+/* Result icons — keep original colors, but change gold for excellent */
+.result-icon.icon-gold { color: var(--accent-gold) !important; }
+.result-icon.icon-green { color: var(--accent-green) !important; }
+
+/* Streak fire icon becomes gold */
+.timer { 
+    background-color: rgba(30, 58, 138, 0.1) !important;
+    color: var(--primary-color) !important;
+}
+
+/* ============================================
+   RULE-BASED BOT
+   ============================================ */
+
+.bot-fab {
+    position: fixed;
+    bottom: 90px;
+    right: 18px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--primary-color, #1E3A8A);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.35);
+    z-index: 950;
+    transition: all 0.25s ease;
+}
+
+.bot-fab:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(30, 58, 138, 0.5);
+}
+
+.bot-fab.open {
+    background-color: #dc2626;
+}
+
+.bot-fab.open::after {
+    content: '×';
+    position: absolute;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.bot-fab.open svg { display: none; }
+
+/* Chat Window */
+.bot-window {
+    position: fixed;
+    bottom: 155px;
+    right: 18px;
+    width: 340px;
+    max-width: calc(100vw - 36px);
+    height: 500px;
+    max-height: calc(100vh - 200px);
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    z-index: 949;
+    overflow: hidden;
+    animation: botSlideUp 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes botSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.bot-header {
+    background: linear-gradient(135deg, #0F2027 0%, #1E3A8A 100%);
+    color: #ffffff;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #C5A059;
+}
+
+.bot-header-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bot-avatar {
+    width: 36px;
+    height: 36px;
+    background-color: #C5A059;
+    color: #0F2027;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.bot-header h4 {
+    font-size: 0.95rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.bot-status {
+    font-size: 0.7rem;
+    color: #4ade80;
+    font-weight: 500;
+}
+
+.bot-close {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.6rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 4px;
+    opacity: 0.8;
+}
+
+.bot-close:hover { opacity: 1; }
+
+.bot-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    background-color: #F8FAFC;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bot-msg {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+    font-family: var(--font-family);
+}
+
+.bot-msg-bot {
+    background-color: #ffffff;
+    color: #1E293B;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.bot-msg-user {
+    background-color: #1E3A8A;
+    color: #ffffff;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.bot-input-row {
+    display: flex;
+    gap: 8px;
+    padding: 10px 12px;
+    background-color: #ffffff;
+    border-top: 1px solid #E2E8F0;
+}
+
+.bot-input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 24px;
+    font-family: var(--font-family);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.bot-input:focus {
+    border-color: #1E3A8A;
+}
+
+.bot-send {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #1E3A8A;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background-color 0.2s;
+}
+
+.bot-send:hover { background-color: #1E40AF; }
+
+.bot-quick-actions {
+    display: flex;
+    gap: 6px;
+    padding: 8px 12px 12px;
+    background-color: #ffffff;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.bot-quick-actions::-webkit-scrollbar { display: none; }
+
+.bot-quick-btn {
+    padding: 6px 12px;
+    background-color: #EFF6FF;
+    color: #1E3A8A;
+    border: 1px solid #DBEAFE;
+    border-radius: 20px;
+    font-family: var(--font-family);
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.bot-quick-btn:hover {
+    background-color: #1E3A8A;
+    color: #ffffff;
+}
+
+/* Push FABs to make space for bot button */
+.floating-fabs {
+    bottom: 160px !important;
+}
+
+@media (max-width: 500px) {
+    .bot-window {
+        width: calc(100vw - 24px);
+        right: 12px;
+        bottom: 145px;
+        height: 480px;
+    }
+    .bot-fab {
+        bottom: 85px;
+        right: 16px;
+        width: 52px;
+        height: 52px;
+    }
+    .floating-fabs {
+        bottom: 150px !important;
+        right: 16px !important;
+    }
+}
