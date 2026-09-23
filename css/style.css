@@ -3299,3 +3299,86 @@ a:not(.btn-primary):not(.btn-secondary):not(.action-btn):not(.fab-btn) {
     height: 90px;
     margin-bottom: 12px;
 }
+
+/* ============================================
+   SPLASH SCREEN — Polished
+   ============================================ */
+
+#splashScreen {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #0F2027 0%, #1E3A8A 50%, #0F2027 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    z-index: 99999;
+    transition: opacity 0.5s ease;
+}
+
+#splashScreen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#splashScreen .splash-logo {
+    width: 120px;
+    height: 120px;
+    animation: splashPop 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    filter: drop-shadow(0 8px 24px rgba(197, 160, 89, 0.4));
+}
+
+#splashScreen .splash-title {
+    color: #FFFFFF;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-top: 5px;
+    animation: splashFadeIn 0.9s ease 0.25s both;
+}
+
+#splashScreen .splash-tagline {
+    color: #C5A059;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    animation: splashFadeIn 0.9s ease 0.4s both;
+}
+
+#splashScreen .splash-loader {
+    margin-top: 30px;
+    width: 80px;
+    height: 3px;
+    background-color: rgba(197, 160, 89, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+    animation: splashFadeIn 0.9s ease 0.6s both;
+}
+
+#splashScreen .splash-loader::after {
+    content: '';
+    display: block;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, #C5A059 0%, #D4AF6A 100%);
+    border-radius: 3px;
+    animation: splashLoading 1.2s ease-in-out infinite;
+}
+
+@keyframes splashPop {
+    from { transform: scale(0.5) rotate(-10deg); opacity: 0; }
+    to { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes splashFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes splashLoading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(300%); }
+}
