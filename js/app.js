@@ -7,16 +7,16 @@ if (!deviceId) {
 }
 
 const BANGLA = { '6': '৬', '7': '৭', '8': '৮', '9': '৯', '10': '১০' };
+const GROUP_NAMES = { science: 'বিজ্ঞান', commerce: 'ব্যবসায় শিক্ষা', arts: 'মানবিক' };
 
 document.addEventListener('DOMContentLoaded', () => {
-    setGreeting();
+    loadWelcomeCard();
     loadHomeStats();
     loadMyClass();
 });
 
-function setGreeting() {
-    const user = localStorage.getItem('cpb_user');
-    const userName = user ? JSON.parse(user).name : '';
+function loadWelcomeCard() {
+    const user = JSON.parse(localStorage.getItem('cpb_user') || '{}');
     const hour = new Date().getHours();
     let greeting;
     if (hour < 5) greeting = 'শুভ রাত্রি';
@@ -24,10 +24,30 @@ function setGreeting() {
     else if (hour < 16) greeting = 'শুভ দুপুর';
     else if (hour < 19) greeting = 'শুভ বিকেল';
     else greeting = 'শুভ সন্ধ্যা';
-    if (userName) greeting += ', ' + userName + '!';
-    else greeting += '!';
-    const el = document.getElementById('greeting');
-    if (el) el.textContent = greeting;
+
+    const name = user.name || 'বন্ধু';
+    const greetingEl = document.getElementById('greeting');
+    if (greetingEl) greetingEl.textContent = greeting + ', ' + name + '!';
+
+    // Subtitle: class + group
+    const classBn = BANGLA[user.class] || user.class || '';
+    let subParts = [];
+    if (classBn) subParts.push('Class ' + classBn);
+    if ((user.class === '9' || user.class === '10') && user.group) {
+        subParts.push(GROUP_NAMES[user.group] || user.group);
+    }
+    if (user.school) subParts.push(user.school);
+
+    const subEl = document.getElementById('welcomeSub');
+    if (subEl) subEl.textContent = subParts.join(' • ') || 'চলো পড়তে বসি';
+
+    // Avatar
+    const avatarEl = document.getElementById('welcomeAvatar');
+    if (avatarEl && window.getAvatarSVG && user.avatar) {
+        avatarEl.innerHTML = window.getAvatarSVG(user.avatar);
+    } else if (avatarEl) {
+        avatarEl.innerHTML = '<div class="welcome-avatar-fallback">' + (name[0] || 'প') + '</div>';
+    }
 }
 
 function loadMyClass() {
@@ -44,8 +64,7 @@ function loadMyClass() {
 
     let groupBadge = '';
     if ((userClass === '9' || userClass === '10') && user.group) {
-        const groupNames = { science: 'বিজ্ঞান', commerce: 'ব্যবসায় শিক্ষা', arts: 'মানবিক' };
-        groupBadge = '<span class="my-class-group-badge">' + (groupNames[user.group] || user.group) + '</span>';
+        groupBadge = '<span class="my-class-group-badge">' + (GROUP_NAMES[user.group] || user.group) + '</span>';
     }
 
     grid.innerHTML =
