@@ -105,7 +105,7 @@ function loadHomeStats() {
     const subtitle = document.getElementById('bannerSubtitle');
     if (subtitle) {
         if (results.length === 0) subtitle.textContent = 'প্রথম পরীক্ষা দিয়ে শুরু করুন';
-        else if (hasExamToday(results)) subtitle.textContent = 'আজকের পরীক্ষা সম্পন্ন ✓';
+        else if (hasExamToday(results)) subtitle.textContent = 'আজকের পরীক্ষা সম্পন্ন <i class="fas fa-check"></i>';
         else if (streak > 0) subtitle.textContent = 'স্ট্রিক ধরে রাখুন — আজকের পরীক্ষা দিন';
         else subtitle.textContent = 'আবার শুরু করুন — আজকের পরীক্ষা দিন';
     }

@@ -176,6 +176,12 @@ function submitExam() {
 
     document.getElementById('examScreen').classList.add('hidden');
     document.getElementById('resultScreen').classList.remove('hidden');
+    if (window.showToast) {
+        const pct = (correct / total) * 100;
+        if (pct >= 80) showToast('অসাধারণ! তুমি ' + toBanglaNumber(correct) + '/' + toBanglaNumber(total) + ' পেয়েছ!', 'success');
+        else if (pct >= 60) showToast('ভালো করেছ! ' + toBanglaNumber(correct) + '/' + toBanglaNumber(total), 'info');
+        else showToast('আরও চেষ্টা করো!', 'warning');
+    }
 
     displayResult(correct, total, wrong, timeTaken);
     renderReview(reviewData);

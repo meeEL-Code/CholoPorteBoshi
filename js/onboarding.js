@@ -205,7 +205,7 @@ function showCompletionThenClose() {
     const card = document.querySelector('.modal-card');
     card.innerHTML =
         '<div style="text-align:center; padding: 20px 0;">' +
-            '<div style="font-size: 5rem; margin-bottom: 15px;">🎉</div>' +
+            '<div style="font-size: 5rem; margin-bottom: 15px;"><i class="fas fa-star"></i></div>' +
             '<h2 class="modal-title">স্বাগতম, ' + userData.name + '!</h2>' +
             '<p class="modal-subtitle">চলো পড়তে বসি — তোমার শেখার যাত্রা শুরু হোক</p>' +
             '<button id="enterBtn" class="modal-btn-primary" style="margin-top: 25px;">শুরু করি</button>' +
@@ -213,6 +213,9 @@ function showCompletionThenClose() {
 
     document.getElementById('enterBtn').addEventListener('click', () => {
         document.getElementById('onboardingOverlay').classList.add('hidden');
+        if (window.showToast) {
+            setTimeout(() => showToast('স্বাগতম ' + userData.name + '! <i class="fas fa-star"></i>', 'success', 3500), 500);
+        }
         // Reload to show profile icon and personalized welcome
         location.reload();
     });

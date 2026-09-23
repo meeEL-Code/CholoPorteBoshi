@@ -2753,3 +2753,549 @@ header {
     .brand-name { font-size: 1.1rem; }
     .navbar-brand { gap: 9px; }
 }
+
+/* ============================================
+   FULL WEBSITE POLISH
+   ============================================ */
+
+/* Smooth transitions everywhere */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Better body background with subtle gradient */
+body {
+    background:
+        radial-gradient(circle at 20% 0%, rgba(30, 58, 138, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 80% 100%, rgba(197, 160, 89, 0.05) 0%, transparent 50%),
+        #F8FAFC !important;
+    min-height: 100vh;
+}
+
+/* ===== Cards: consistent polish ===== */
+.stat-card,
+.my-class-card,
+.quick-action,
+.chapter-card-modern,
+.syllabus-subject,
+.short-item,
+.creative-item,
+.challenge-item,
+.history-item,
+.result-card,
+.syllabus-user-card,
+.syllabus-progress,
+.welcome-card,
+.setup-card,
+.question-card,
+.drawer-card,
+.notes-content {
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+}
+
+/* Hover lift for interactive cards */
+.my-class-card:hover,
+.quick-action:hover,
+.chapter-card-modern:hover,
+.class-card:hover,
+.syllabus-chapter:hover,
+.history-item:hover,
+.action-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ===== Section titles with gold underline ===== */
+.section-title {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #C5A059 0%, #D4AF6A 100%);
+    border-radius: 2px;
+    margin: 8px auto 0;
+}
+
+.page-header .section-title::after,
+.notes-title-wrap .section-title::after {
+    margin: 8px 0 0;
+}
+
+/* ===== Buttons: refined ===== */
+.btn-primary,
+.modal-btn-primary {
+    background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%) !important;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
+    letter-spacing: 0.2px;
+}
+
+.btn-primary:hover,
+.modal-btn-primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, #1E40AF 0%, #1E3A8A 100%) !important;
+    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-primary:active,
+.modal-btn-primary:active {
+    transform: translateY(0);
+}
+
+/* ===== Bottom action buttons (exam) ===== */
+.action-exam {
+    background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%) !important;
+    border: none !important;
+    box-shadow: 0 3px 10px rgba(30, 58, 138, 0.25);
+}
+
+.action-notes {
+    border-color: #1E3A8A !important;
+    color: #1E3A8A !important;
+    background-color: rgba(30, 58, 138, 0.06) !important;
+}
+
+.action-notes:hover {
+    background-color: #1E3A8A !important;
+    color: #ffffff !important;
+}
+
+/* ===== Progress bars: refined ===== */
+.progress-bar {
+    background-color: #E2E8F0 !important;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, #059669 0%, #10B981 100%) !important;
+    box-shadow: 0 2px 6px rgba(5, 150, 105, 0.35);
+}
+
+/* ===== Stat cards: gold top accent for streak ===== */
+.stat-card,
+.home-stat {
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #1E3A8A, #C5A059);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.stat-card:hover::before {
+    opacity: 1;
+}
+
+/* ===== FAB buttons: refined shadows ===== */
+.fab-btn {
+    box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.12),
+        0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+.fab-btn:hover {
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.18),
+        0 2px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+.fab-profile {
+    border: 2px solid #C5A059 !important;
+}
+
+/* ===== Back button: gold hover ===== */
+.back-btn:hover {
+    background-color: #C5A059 !important;
+    border-color: #C5A059 !important;
+    color: #ffffff !important;
+}
+
+/* ===== Timer: refined ===== */
+.timer {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, rgba(30, 58, 138, 0.05) 100%) !important;
+    border: 1px solid rgba(30, 58, 138, 0.15);
+}
+
+/* ===== Option buttons (exam): better selected state ===== */
+.option-btn {
+    border-color: #E2E8F0 !important;
+    background-color: #FFFFFF !important;
+}
+
+.option-btn:hover {
+    border-color: #1E3A8A !important;
+    background-color: rgba(30, 58, 138, 0.04) !important;
+    transform: translateX(2px);
+}
+
+.option-btn.selected {
+    background: linear-gradient(90deg, rgba(30, 58, 138, 0.08) 0%, rgba(30, 58, 138, 0.12) 100%) !important;
+    border-color: #1E3A8A !important;
+    box-shadow: 0 3px 10px rgba(30, 58, 138, 0.15);
+}
+
+/* ===== Tab buttons (notes page) ===== */
+.tab-btn.active {
+    background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%) !important;
+    box-shadow: 0 3px 10px rgba(30, 58, 138, 0.3);
+}
+
+/* ===== Empty states ===== */
+.empty-state i,
+.reader-empty-icon {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.08) 0%, rgba(197, 160, 89, 0.08) 100%);
+    border-radius: 50%;
+}
+
+/* ===== Scrollbar refinement ===== */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(30, 58, 138, 0.2);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(30, 58, 138, 0.4);
+}
+
+/* ============================================
+   FOOTER — Refined
+   ============================================ */
+
+footer {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%) !important;
+    padding: 30px 0 25px !important;
+    margin-top: 50px !important;
+    border-top: 3px solid #C5A059 !important;
+    text-align: center;
+    color: #64748B;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.footer-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(30, 58, 138, 0.15);
+}
+
+.footer-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1E3A8A;
+    letter-spacing: 0.3px;
+}
+
+.footer-text {
+    font-size: 0.85rem;
+    color: #64748B;
+    margin-bottom: 6px !important;
+    line-height: 1.5;
+}
+
+.footer-sub {
+    font-size: 0.78rem;
+    color: #C5A059;
+    font-weight: 600;
+    margin: 0 !important;
+    letter-spacing: 0.2px;
+}
+
+/* ===== Mobile spacing ===== */
+@media (max-width: 500px) {
+    main.container {
+        padding: 0 14px;
+    }
+
+    footer {
+        padding: 25px 0 20px !important;
+        margin-top: 40px !important;
+    }
+
+    .footer-logo {
+        width: 28px;
+        height: 28px;
+    }
+
+    .footer-name {
+        font-size: 1rem;
+    }
+
+    .footer-text {
+        font-size: 0.78rem;
+    }
+
+    .footer-sub {
+        font-size: 0.72rem;
+    }
+}
+
+/* ============================================
+   PAGE LOAD ANIMATIONS
+   ============================================ */
+
+/* Fade-in-up for main content */
+main.container {
+    animation: pageFadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered card animations */
+.home-stats > *,
+.class-grid > *,
+.chapter-list > *,
+.syllabus-subject,
+.history-list > *,
+.short-list > *,
+.creative-item,
+.challenge-item {
+    animation: cardSlideIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.home-stats > *:nth-child(1),
+.class-grid > *:nth-child(1) { animation-delay: 0.05s; }
+
+.home-stats > *:nth-child(2),
+.class-grid > *:nth-child(2) { animation-delay: 0.1s; }
+
+.home-stats > *:nth-child(3),
+.class-grid > *:nth-child(3) { animation-delay: 0.15s; }
+
+.class-grid > *:nth-child(4) { animation-delay: 0.2s; }
+.class-grid > *:nth-child(5) { animation-delay: 0.25s; }
+.class-grid > *:nth-child(6) { animation-delay: 0.3s; }
+.class-grid > *:nth-child(7) { animation-delay: 0.35s; }
+.class-grid > *:nth-child(8) { animation-delay: 0.4s; }
+.class-grid > *:nth-child(9) { animation-delay: 0.45s; }
+.class-grid > *:nth-child(10) { animation-delay: 0.5s; }
+
+@keyframes cardSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Header animation on load */
+header,
+.notes-header,
+.reader-header {
+    animation: headerSlideDown 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes headerSlideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   TOAST NOTIFICATIONS
+   ============================================ */
+
+.toast-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+    width: calc(100% - 40px);
+    max-width: 400px;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #1E3A8A;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: auto;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1E3A8A;
+}
+
+.toast-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.toast-message {
+    flex: 1;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #1E293B;
+    line-height: 1.4;
+}
+
+.toast-success { border-left-color: #059669; }
+.toast-success .toast-icon { color: #059669; }
+
+.toast-error { border-left-color: #DC2626; }
+.toast-error .toast-icon { color: #DC2626; }
+
+.toast-warning { border-left-color: #C5A059; }
+.toast-warning .toast-icon { color: #C5A059; }
+
+.toast-info { border-left-color: #1E3A8A; }
+.toast-info .toast-icon { color: #1E3A8A; }
+
+/* ============================================
+   MICRO-INTERACTIONS
+   ============================================ */
+
+/* Button press effect */
+button, .btn-primary, .btn-secondary, .btn-submit,
+.action-btn, .modal-btn-primary, .modal-btn-secondary,
+.tab-btn, .group-tab, .fab-btn, .bot-quick-btn,
+.back-btn, .read-btn, .option-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+button:active:not(:disabled),
+.btn-primary:active,
+.btn-secondary:active,
+.action-btn:active,
+.tab-btn:active,
+.fab-btn:active {
+    transform: scale(0.97);
+    transition: transform 0.1s ease;
+}
+
+/* Ripple effect on tap */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(0);
+    animation: ripple-anim 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes ripple-anim {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Focus rings for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid #C5A059;
+    outline-offset: 2px;
+}
+
+/* Link hover underline animation */
+a:not(.btn-primary):not(.btn-secondary):not(.action-btn):not(.fab-btn) {
+    transition: color 0.2s ease;
+}
+
+/* Smooth icon transitions */
+.fas, .far, .fab {
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* ============================================
+   SKELETON LOADING
+   ============================================ */
+
+.skeleton {
+    background: linear-gradient(90deg,
+        #F1F5F9 0%,
+        #E2E8F0 50%,
+        #F1F5F9 100%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+    border-radius: 8px;
+}
+
+@keyframes skeleton-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.skeleton-text {
+    height: 14px;
+    margin-bottom: 8px;
+}
+
+.skeleton-card {
+    height: 90px;
+    margin-bottom: 12px;
+}

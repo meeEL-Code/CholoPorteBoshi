@@ -85,7 +85,7 @@
 
         <section id="resultScreen" class="result-screen hidden">
             <div class="result-card">
-                <div class="result-icon" id="resultIcon">🎉</div>
+                <div class="result-icon" id="resultIcon"><i class="fas fa-star"></i></div>
                 <h2 id="resultTitle">অভিনন্দন!</h2>
                 <p class="result-score" id="resultScore">০ / ২০</p>
                 <p class="result-message" id="resultMessage"></p>
@@ -126,14 +126,21 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 পড়তে বসি। সর্বস্বত্ব সংরক্ষিত।</p>
+            <div class="footer-brand">
+                <img src="icons/pb-master.png" alt="logo" class="footer-logo">
+                <span class="footer-name">পড়তে বসি</span>
+            </div>
+            <p class="footer-text">&copy; 2026-Present. পড়তে বসি। সর্বস্বত্ব সংরক্ষিত।</p>
+            <p class="footer-sub">সহজ পড়াশোনা, সবার জন্য <i class="fas fa-heart"></i></p>
         </div>
     </footer>
 
+    <script src="js/toast.js"></script>
     <script src="js/exam.js"></script>
     <div class="floating-fabs"><a href="syllabus.html" class="fab-btn fab-syllabus" title="সিলেবাস"><i class="fas fa-list-ul"></i></a><button id="profileFab" class="fab-btn fab-profile" title="প্রোফাইল"><span id="fabAvatar"></span></button></div><div id="profileDrawer" class="drawer-overlay hidden"><div class="drawer-card"><button id="closeDrawer" class="drawer-close"><i class="fas fa-times"></i></button><div class="drawer-avatar" id="drawerAvatar"></div><h2 class="drawer-name" id="drawerName">—</h2><p class="drawer-school" id="drawerSchool">—</p><div class="drawer-badges"><span class="drawer-badge" id="drawerClass">—</span><span class="drawer-badge" id="drawerGroup" style="display:none;">—</span></div><div class="drawer-divider"></div><div class="drawer-stats"><div class="drawer-stat"><span class="drawer-stat-val" id="drawerExams">০</span><span class="drawer-stat-lbl">পরীক্ষা</span></div><div class="drawer-stat"><span class="drawer-stat-val" id="drawerBest">০%</span><span class="drawer-stat-lbl">সেরা স্কোর</span></div><div class="drawer-stat"><span class="drawer-stat-val" id="drawerStreak">০</span><span class="drawer-stat-lbl">স্ট্রিক</span></div></div><div class="drawer-divider"></div><a href="progress.html" class="drawer-menu-item"><i class="fas fa-chart-line"></i><span>আমার অগ্রগতি</span><i class="fas fa-chevron-right"></i></a><a href="syllabus.html" class="drawer-menu-item"><i class="fas fa-list-ul"></i><span>সিলেবাস</span><i class="fas fa-chevron-right"></i></a><button id="editProfileBtn" class="drawer-menu-item"><i class="fas fa-user-edit"></i><span>ক্লাস বা প্রোফাইল পরিবর্তন</span><i class="fas fa-chevron-right"></i></button></div></div><script src="js/onboarding.js"></script>
 <script src="js/profile.js"></script>
     <script src="js/bot.js"></script>
+    <script src="js/ripple.js"></script>
     <script src="js/pwa.js"></script>
     
 </body>
