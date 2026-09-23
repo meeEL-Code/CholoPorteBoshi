@@ -2703,3 +2703,14 @@ header .header-content {
     .brand-name { font-size: 1.05rem; }
     .navbar-brand { gap: 8px; }
 }
+
+/* Fix Bengali numeral clipping in my-class card */
+.my-class-info h3 {
+    font-size: 1.3rem !important;
+    line-height: 1.3 !important;
+    padding-bottom: 2px;
+}
+
+@media (max-width: 400px) {
+    .my-class-info h3 { font-size: 1.15rem !important; }
+}
