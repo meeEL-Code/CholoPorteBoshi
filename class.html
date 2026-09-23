@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>বিষয় নির্বাচন - চলো পড়তে বসি</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00693E">
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -38,5 +42,8 @@
     </footer>
 
     <script src="js/class.js"></script>
+    <div class="floating-fabs"><a href="syllabus.html" class="fab-btn fab-syllabus" title="সিলেবাস"><i class="fas fa-list-ul"></i></a><button id="profileFab" class="fab-btn fab-profile" title="প্রোফাইল"><span id="fabAvatar"></span></button></div><div id="profileDrawer" class="drawer-overlay hidden"><div class="drawer-card"><button id="closeDrawer" class="drawer-close"><i class="fas fa-times"></i></button><div class="drawer-avatar" id="drawerAvatar"></div><h2 class="drawer-name" id="drawerName">—</h2><p class="drawer-school" id="drawerSchool">—</p><div class="drawer-badges"><span class="drawer-badge" id="drawerClass">—</span><span class="drawer-badge" id="drawerGroup" style="display:none;">—</span></div><div class="drawer-divider"></div><div class="drawer-stats"><div class="drawer-stat"><span class="drawer-stat-val" id="drawerExams">০</span><span class="drawer-stat-lbl">পরীক্ষা</span></div><div class="drawer-stat"><span class="drawer-stat-val" id="drawerBest">০%</span><span class="drawer-stat-lbl">সেরা স্কোর</span></div><div class="drawer-stat"><span class="drawer-stat-val" id="drawerStreak">০</span><span class="drawer-stat-lbl">স্ট্রিক</span></div></div><div class="drawer-divider"></div><a href="progress.html" class="drawer-menu-item"><i class="fas fa-chart-line"></i><span>আমার অগ্রগতি</span><i class="fas fa-chevron-right"></i></a><a href="syllabus.html" class="drawer-menu-item"><i class="fas fa-list-ul"></i><span>সিলেবাস</span><i class="fas fa-chevron-right"></i></a><button id="editProfileBtn" class="drawer-menu-item"><i class="fas fa-user-edit"></i><span>প্রোফাইল পরিবর্তন</span><i class="fas fa-chevron-right"></i></button></div></div><script src="js/onboarding.js"></script>
+<script src="js/profile.js"></script>
+    <script src="js/pwa.js"></script>
 </body>
 </html>
