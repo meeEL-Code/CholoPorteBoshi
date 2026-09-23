@@ -1,35 +1,48 @@
-// Get class number from the URL (e.g., class.html?class=6)
+// ===== Class Page Logic =====
+
 const urlParams = new URLSearchParams(window.location.search);
 const classId = urlParams.get('class') || '6';
 
 const classTitle = document.getElementById('classTitle');
 const subjectGrid = document.getElementById('subjectGrid');
 
-// Update the title based on the selected class
-classTitle.textContent = `Class ${classId} - বিষয়সমূহ`;
+const banglaNumbers = { '6': '৬', '7': '৭', '8': '৮', '9': '৯', '10': '১০' };
+const banglaClass = banglaNumbers[classId] || classId;
 
-// Fetch data from subjects.json
+classTitle.textContent = 'Class ' + banglaClass + ' - বিষয়সমূহ';
+
 fetch('data/subjects.json')
-    .then(response => response.json())
+    .then(r => r.json())
     .then(data => {
-        const subjects = data[classId] || [];
-        
+        let subjects = [];
+
+        if (classId === '9' || classId === '10') {
+            // Class 9-10: show common + user's group
+            const user = JSON.parse(localStorage.getItem('cpb_user') || '{}');
+            const group = user.group || 'science';
+
+            const classData = data[classId] || {};
+            const common = classData._common || [];
+            const groupSubjects = classData[group] || [];
+
+            subjects = [...common, ...groupSubjects];
+        } else {
+            subjects = data[classId] || [];
+        }
+
         if (subjects.length === 0) {
-            subjectGrid.innerHTML = '<p style="text-align: center; width: 100%;">এই ক্লাসের জন্য কোনো বিষয় পাওয়া যায়নি।</p>';
+            subjectGrid.innerHTML = '<div class="empty-state"><i class="fas fa-inbox"></i><p>এই ক্লাসের বিষয় পাওয়া যায়নি।</p></div>';
             return;
         }
 
-        // Render subject cards with Font Awesome icons
-        subjectGrid.innerHTML = subjects.map(sub => `
-            <a href="subject.html?class=${classId}&subject=${sub.id}" class="class-card">
-                <div class="icon-wrapper">
-                    <i class="fas ${sub.icon}"></i>
-                </div>
-                <h3>${sub.name}</h3>
-            </a>
-        `).join('');
+        subjectGrid.innerHTML = subjects.map(sub =>
+            '<a href="subject.html?class=' + classId + '&subject=' + sub.id + '" class="class-card">' +
+                '<div class="icon-wrapper"><i class="fas ' + sub.icon + '"></i></div>' +
+                '<h3>' + sub.name + '</h3>' +
+            '</a>'
+        ).join('');
     })
-    .catch(error => {
-        console.error('Error loading subjects:', error);
-        subjectGrid.innerHTML = '<p style="text-align: center; width: 100%;">ডেটা লোড করতে সমস্যা হচ্ছে।</p>';
+    .catch(err => {
+        console.error(err);
+        subjectGrid.innerHTML = '<p style="text-align: center;">ডেটা লোড করতে সমস্যা হচ্ছে।</p>';
     });

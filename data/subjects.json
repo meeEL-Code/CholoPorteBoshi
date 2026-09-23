@@ -14,5 +14,99 @@
     {"id": "hindu", "name": "হিন্দুধর্ম শিক্ষা", "icon": "fa-om"},
     {"id": "christian", "name": "খ্রীষ্টধর্ম শিক্ষা", "icon": "fa-cross"},
     {"id": "buddhist", "name": "বৌদ্ধধর্ম শিক্ষা", "icon": "fa-dharmachakra"}
-  ]
+  ],
+  "7": [
+    {"id": "bangla", "name": "চারুপাঠ ও আনন্দপাঠ", "icon": "fa-book-open"},
+    {"id": "bangla-grammar", "name": "বাংলা ব্যাকরণ ও নির্মিতি", "icon": "fa-spell-check"},
+    {"id": "english", "name": "English For Today", "icon": "fa-language"},
+    {"id": "english-grammar", "name": "English Grammar & Composition", "icon": "fa-pen-fancy"},
+    {"id": "math", "name": "গণিত", "icon": "fa-calculator"},
+    {"id": "ict", "name": "তথ্য ও যোগাযোগ প্রযুক্তি", "icon": "fa-laptop-code"},
+    {"id": "bgs", "name": "বাংলাদেশ ও বিশ্বপরিচয়", "icon": "fa-earth-asia"},
+    {"id": "science", "name": "বিজ্ঞান", "icon": "fa-flask"},
+    {"id": "pe", "name": "শারীরিক শিক্ষা ও স্বাস্থ্য", "icon": "fa-heart-pulse"},
+    {"id": "work", "name": "কর্ম ও জীবনমুখী শিক্ষা", "icon": "fa-briefcase"},
+    {"id": "islam", "name": "ইসলাম শিক্ষা", "icon": "fa-mosque"},
+    {"id": "hindu", "name": "হিন্দুধর্ম শিক্ষা", "icon": "fa-om"},
+    {"id": "christian", "name": "খ্রীষ্টধর্ম শিক্ষা", "icon": "fa-cross"},
+    {"id": "buddhist", "name": "বৌদ্ধধর্ম শিক্ষা", "icon": "fa-dharmachakra"}
+  ],
+  "8": [
+    {"id": "bangla", "name": "চারুপাঠ ও আনন্দপাঠ", "icon": "fa-book-open"},
+    {"id": "bangla-grammar", "name": "বাংলা ব্যাকরণ ও নির্মিতি", "icon": "fa-spell-check"},
+    {"id": "english", "name": "English For Today", "icon": "fa-language"},
+    {"id": "english-grammar", "name": "English Grammar & Composition", "icon": "fa-pen-fancy"},
+    {"id": "math", "name": "গণিত", "icon": "fa-calculator"},
+    {"id": "ict", "name": "তথ্য ও যোগাযোগ প্রযুক্তি", "icon": "fa-laptop-code"},
+    {"id": "bgs", "name": "বাংলাদেশ ও বিশ্বপরিচয়", "icon": "fa-earth-asia"},
+    {"id": "science", "name": "বিজ্ঞান", "icon": "fa-flask"},
+    {"id": "pe", "name": "শারীরিক শিক্ষা ও স্বাস্থ্য", "icon": "fa-heart-pulse"},
+    {"id": "work", "name": "কর্ম ও জীবনমুখী শিক্ষা", "icon": "fa-briefcase"},
+    {"id": "islam", "name": "ইসলাম শিক্ষা", "icon": "fa-mosque"},
+    {"id": "hindu", "name": "হিন্দুধর্ম শিক্ষা", "icon": "fa-om"},
+    {"id": "christian", "name": "খ্রীষ্টধর্ম শিক্ষা", "icon": "fa-cross"},
+    {"id": "buddhist", "name": "বৌদ্ধধর্ম শিক্ষা", "icon": "fa-dharmachakra"}
+  ],
+  "9": {
+    "_common": [
+      {"id": "bangla", "name": "বাংলা সাহিত্য", "icon": "fa-book-open"},
+      {"id": "bangla-grammar", "name": "বাংলা ব্যাকরণ ও নির্মিতি", "icon": "fa-spell-check"},
+      {"id": "english", "name": "English For Today", "icon": "fa-language"},
+      {"id": "english-grammar", "name": "English Grammar & Composition", "icon": "fa-pen-fancy"},
+      {"id": "math", "name": "সাধারণ গণিত", "icon": "fa-calculator"},
+      {"id": "ict", "name": "তথ্য ও যোগাযোগ প্রযুক্তি", "icon": "fa-laptop-code"},
+      {"id": "islam", "name": "ইসলাম ও নৈতিক শিক্ষা", "icon": "fa-mosque"},
+      {"id": "hindu", "name": "হিন্দুধর্ম ও নৈতিক শিক্ষা", "icon": "fa-om"},
+      {"id": "christian", "name": "খ্রীষ্টধর্ম ও নৈতিক শিক্ষা", "icon": "fa-cross"},
+      {"id": "buddhist", "name": "বৌদ্ধধর্ম ও নৈতিক শিক্ষা", "icon": "fa-dharmachakra"}
+    ],
+    "science": [
+      {"id": "physics", "name": "পদার্থবিজ্ঞান", "icon": "fa-atom"},
+      {"id": "chemistry", "name": "রসায়ন", "icon": "fa-flask"},
+      {"id": "biology", "name": "জীববিজ্ঞান", "icon": "fa-dna"},
+      {"id": "higher-math", "name": "উচ্চতর গণিত", "icon": "fa-square-root-variable"}
+    ],
+    "commerce": [
+      {"id": "accounting", "name": "হিসাববিজ্ঞান", "icon": "fa-calculator"},
+      {"id": "business", "name": "ব্যবসায় উদ্যোগ", "icon": "fa-briefcase"},
+      {"id": "finance", "name": "ফিন্যান্স ও ব্যাংকিং", "icon": "fa-money-bill-wave"}
+    ],
+    "arts": [
+      {"id": "history", "name": "বাংলাদেশের ইতিহাস ও বিশ্বসভ্যতা", "icon": "fa-landmark"},
+      {"id": "geography", "name": "ভূগোল ও পরিবেশ", "icon": "fa-earth-asia"},
+      {"id": "civics", "name": "পৌরনীতি ও নাগরিকতা", "icon": "fa-users"},
+      {"id": "economics", "name": "অর্থনীতি", "icon": "fa-chart-line"}
+    ]
+  },
+  "10": {
+    "_common": [
+      {"id": "bangla", "name": "বাংলা সাহিত্য", "icon": "fa-book-open"},
+      {"id": "bangla-grammar", "name": "বাংলা ব্যাকরণ ও নির্মিতি", "icon": "fa-spell-check"},
+      {"id": "english", "name": "English For Today", "icon": "fa-language"},
+      {"id": "english-grammar", "name": "English Grammar & Composition", "icon": "fa-pen-fancy"},
+      {"id": "math", "name": "সাধারণ গণিত", "icon": "fa-calculator"},
+      {"id": "ict", "name": "তথ্য ও যোগাযোগ প্রযুক্তি", "icon": "fa-laptop-code"},
+      {"id": "islam", "name": "ইসলাম ও নৈতিক শিক্ষা", "icon": "fa-mosque"},
+      {"id": "hindu", "name": "হিন্দুধর্ম ও নৈতিক শিক্ষা", "icon": "fa-om"},
+      {"id": "christian", "name": "খ্রীষ্টধর্ম ও নৈতিক শিক্ষা", "icon": "fa-cross"},
+      {"id": "buddhist", "name": "বৌদ্ধধর্ম ও নৈতিক শিক্ষা", "icon": "fa-dharmachakra"}
+    ],
+    "science": [
+      {"id": "physics", "name": "পদার্থবিজ্ঞান", "icon": "fa-atom"},
+      {"id": "chemistry", "name": "রসায়ন", "icon": "fa-flask"},
+      {"id": "biology", "name": "জীববিজ্ঞান", "icon": "fa-dna"},
+      {"id": "higher-math", "name": "উচ্চতর গণিত", "icon": "fa-square-root-variable"}
+    ],
+    "commerce": [
+      {"id": "accounting", "name": "হিসাববিজ্ঞান", "icon": "fa-calculator"},
+      {"id": "business", "name": "ব্যবসায় উদ্যোগ", "icon": "fa-briefcase"},
+      {"id": "finance", "name": "ফিন্যান্স ও ব্যাংকিং", "icon": "fa-money-bill-wave"}
+    ],
+    "arts": [
+      {"id": "history", "name": "বাংলাদেশের ইতিহাস ও বিশ্বসভ্যতা", "icon": "fa-landmark"},
+      {"id": "geography", "name": "ভূগোল ও পরিবেশ", "icon": "fa-earth-asia"},
+      {"id": "civics", "name": "পৌরনীতি ও নাগরিকতা", "icon": "fa-users"},
+      {"id": "economics", "name": "অর্থনীতি", "icon": "fa-chart-line"}
+    ]
+  }
 }

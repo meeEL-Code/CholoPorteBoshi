@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সিলেবাস - চলো পড়তে বসি</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00693E">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="notes-header">
+        <div class="container notes-header-content">
+            <a href="javascript:history.back()" class="back-btn notes-back" title="ফিরে যান">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="notes-title-wrap">
+                <h1 class="notes-title">আমার সিলেবাস</h1>
+                <p class="notes-subtitle" id="syllabusSubtitle">লোড হচ্ছে...</p>
+            </div>
+            <a href="exam.html" class="notes-icon-btn" title="পরীক্ষা">
+                <i class="fas fa-play"></i>
+            </a>
+        </div>
+    </header>
+
+    <main class="container syllabus-main">
+        <!-- User Info Card -->
+        <div class="syllabus-user-card">
+            <div class="syllabus-user-avatar" id="userAvatar"></div>
+            <div class="syllabus-user-info">
+                <h3 id="userName">—</h3>
+                <p id="userMeta">—</p>
+            </div>
+        </div>
+
+        <!-- Progress Overview -->
+        <div class="syllabus-progress">
+            <div class="syllabus-progress-head">
+                <span>সিলেবাস কাভারেজ</span>
+                <span id="progressPercent">০%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="syllabusProgressFill" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Subject Filter (only for 9-10) -->
+        <div id="groupTabs" class="group-tabs hidden">
+            <button class="group-tab active" data-group="science">বিজ্ঞান</button>
+            <button class="group-tab" data-group="commerce">ব্যবসায় শিক্ষা</button>
+            <button class="group-tab" data-group="arts">মানবিক</button>
+        </div>
+
+        <!-- Subject-wise Chapter List -->
+        <div id="syllabusContent"></div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 চলো পড়তে বসি। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-fabs">
+        <a href="syllabus.html" class="fab-btn fab-syllabus" title="সিলেবাস">
+            <i class="fas fa-list-ul"></i>
+        </a>
+        <button id="profileFab" class="fab-btn fab-profile" title="প্রোফাইল">
+            <span id="fabAvatar"></span>
+        </button>
+    </div>
+
+    <!-- Profile Drawer -->
+    <div id="profileDrawer" class="drawer-overlay hidden">
+        <div class="drawer-card">
+            <button id="closeDrawer" class="drawer-close"><i class="fas fa-times"></i></button>
+            <div class="drawer-avatar" id="drawerAvatar"></div>
+            <h2 class="drawer-name" id="drawerName">—</h2>
+            <p class="drawer-school" id="drawerSchool">—</p>
+            <div class="drawer-badges">
+                <span class="drawer-badge" id="drawerClass">—</span>
+                <span class="drawer-badge" id="drawerGroup" style="display:none;">—</span>
+            </div>
+            <div class="drawer-divider"></div>
+            <div class="drawer-stats">
+                <div class="drawer-stat"><span class="drawer-stat-val" id="drawerExams">০</span><span class="drawer-stat-lbl">পরীক্ষা</span></div>
+                <div class="drawer-stat"><span class="drawer-stat-val" id="drawerBest">০%</span><span class="drawer-stat-lbl">সেরা স্কোর</span></div>
+                <div class="drawer-stat"><span class="drawer-stat-val" id="drawerStreak">০</span><span class="drawer-stat-lbl">স্ট্রিক</span></div>
+            </div>
+            <div class="drawer-divider"></div>
+            <a href="progress.html" class="drawer-menu-item"><i class="fas fa-chart-line"></i><span>আমার অগ্রগতি</span><i class="fas fa-chevron-right"></i></a>
+            <a href="syllabus.html" class="drawer-menu-item"><i class="fas fa-list-ul"></i><span>সিলেবাস</span><i class="fas fa-chevron-right"></i></a>
+            <button id="editProfileBtn" class="drawer-menu-item"><i class="fas fa-user-edit"></i><span>প্রোফাইল পরিবর্তন</span><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <script src="js/onboarding.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/syllabus.js"></script>
+    <script src="js/pwa.js"></script>
+</body>
+</html>
