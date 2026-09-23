@@ -2345,3 +2345,97 @@ header,
         right: 16px !important;
     }
 }
+
+/* ============================================
+   MY CLASS CARD (Home)
+   ============================================ */
+
+.my-class-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: linear-gradient(135deg, #ffffff 0%, #F8FAFC 100%);
+    border: 2px solid var(--primary-color, #1E3A8A);
+    border-radius: 16px;
+    padding: 18px 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.12);
+    transition: all 0.25s ease;
+}
+
+.my-class-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(30, 58, 138, 0.25);
+    border-color: var(--accent-gold, #C5A059);
+}
+
+.my-class-icon {
+    width: 54px;
+    height: 54px;
+    background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(30, 58, 138, 0.25);
+}
+
+.my-class-icon svg { width: 28px; height: 28px; }
+
+.my-class-info { flex: 1; min-width: 0; }
+
+.my-class-info h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-color, #1E3A8A);
+    margin-bottom: 3px;
+}
+
+.my-class-info p {
+    font-size: 0.82rem;
+    color: var(--text-light);
+}
+
+.my-class-group-badge {
+    background-color: rgba(197, 160, 89, 0.15);
+    color: #8B6F2F;
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.my-class-arrow {
+    color: #C5A059;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.my-class-hint {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: 10px;
+    text-align: center;
+    line-height: 1.5;
+    padding: 0 8px;
+}
+
+.my-class-hint i {
+    color: var(--accent-gold, #C5A059);
+    margin-right: 4px;
+}
+
+.my-class-hint strong {
+    color: var(--primary-color, #1E3A8A);
+}
+
+@media (max-width: 400px) {
+    .my-class-info h3 { font-size: 1.2rem; }
+    .my-class-icon { width: 48px; height: 48px; }
+    .my-class-icon svg { width: 24px; height: 24px; }
+}

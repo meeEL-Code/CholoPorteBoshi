@@ -6,21 +6,71 @@ if (!deviceId) {
     localStorage.setItem('cpb_device_id', deviceId);
 }
 
+const BANGLA = { '6': '৬', '7': '৭', '8': '৮', '9': '৯', '10': '১০' };
+
 document.addEventListener('DOMContentLoaded', () => {
     setGreeting();
     loadHomeStats();
+    loadMyClass();
 });
 
 function setGreeting() {
+    const user = localStorage.getItem('cpb_user');
+    const userName = user ? JSON.parse(user).name : '';
     const hour = new Date().getHours();
     let greeting;
-    if (hour < 5) greeting = 'শুভ রাত্রি! পড়তে বসি?';
-    else if (hour < 12) greeting = 'শুভ সকাল! পড়া শুরু করি';
-    else if (hour < 16) greeting = 'শুভ দুপুর! একটু পড়া হোক';
-    else if (hour < 19) greeting = 'শুভ বিকেল! পড়তে বসি';
-    else greeting = 'শুভ সন্ধ্যা! পড়া হোক';
+    if (hour < 5) greeting = 'শুভ রাত্রি';
+    else if (hour < 12) greeting = 'শুভ সকাল';
+    else if (hour < 16) greeting = 'শুভ দুপুর';
+    else if (hour < 19) greeting = 'শুভ বিকেল';
+    else greeting = 'শুভ সন্ধ্যা';
+    if (userName) greeting += ', ' + userName + '!';
+    else greeting += '!';
     const el = document.getElementById('greeting');
     if (el) el.textContent = greeting;
+}
+
+function loadMyClass() {
+    const user = JSON.parse(localStorage.getItem('cpb_user') || '{}');
+    const userClass = user.class || '6';
+    const grid = document.getElementById('myClassGrid');
+    if (!grid) return;
+
+    const className = 'Class ' + (BANGLA[userClass] || userClass);
+    const classLabel = BANGLA[userClass] || userClass;
+
+    // Class description map
+    const classDesc = {
+        '6': 'ষষ্ঠ শ্রেণি',
+        '7': 'সপ্তম শ্রেণি',
+        '8': 'অষ্টম শ্রেণি',
+        '9': 'নবম শ্রেণি',
+        '10': 'দশম শ্রেণি'
+    };
+
+    // Group badge for 9-10
+    let groupBadge = '';
+    if ((userClass === '9' || userClass === '10') && user.group) {
+        const groupNames = { science: 'বিজ্ঞান', commerce: 'ব্যবসায় শিক্ষা', arts: 'মানবিক' };
+        groupBadge = '<span class="my-class-group-badge">' + (groupNames[user.group] || user.group) + '</span>';
+    }
+
+    grid.innerHTML =
+        '<a href="class.html?class=' + userClass + '" class="my-class-card">' +
+            '<div class="my-class-icon">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>' +
+            '</div>' +
+            '<div class="my-class-info">' +
+                '<h3>' + className + '</h3>' +
+                '<p>' + (classDesc[userClass] || '') + ' • সব বিষয় দেখুন</p>' +
+            '</div>' +
+            groupBadge +
+            '<i class="fas fa-chevron-right my-class-arrow"></i>' +
+        '</a>' +
+        '<p class="my-class-hint">' +
+            '<i class="fas fa-info-circle"></i> ' +
+            'ক্লাস পরিবর্তন করতে <strong>প্রোফাইল</strong> → <strong>প্রোফাইল পরিবর্তন</strong> এ যান' +
+        '</p>';
 }
 
 function loadHomeStats() {
@@ -44,7 +94,7 @@ function loadHomeStats() {
     const subtitle = document.getElementById('bannerSubtitle');
     if (subtitle) {
         if (results.length === 0) subtitle.textContent = 'প্রথম পরীক্ষা দিয়ে শুরু করুন';
-        else if (hasExamToday(results)) subtitle.textContent = 'আজকের পরীক্ষা সম্পন্ন ✓ আরেকবার দিতে পারেন';
+        else if (hasExamToday(results)) subtitle.textContent = 'আজকের পরীক্ষা সম্পন্ন ✓';
         else if (streak > 0) subtitle.textContent = 'স্ট্রিক ধরে রাখুন — আজকের পরীক্ষা দিন';
         else subtitle.textContent = 'আবার শুরু করুন — আজকের পরীক্ষা দিন';
     }
