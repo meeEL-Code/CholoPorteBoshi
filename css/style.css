@@ -477,3 +477,149 @@ footer {
     width: 16px;
     height: 16px;
 }
+
+/* ============================================
+   PROGRESS PAGE STYLES
+   ============================================ */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 20px 15px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-top: 3px solid var(--primary-color);
+}
+
+.stat-card-icon {
+    width: 45px;
+    height: 45px;
+    margin: 0 auto 10px auto;
+    background-color: rgba(0, 105, 62, 0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.stat-card-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+
+.stat-card-label {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 4px;
+}
+
+/* === History List === */
+.history-section { margin-bottom: 30px; }
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.history-item {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    border-left: 4px solid #cccccc;
+}
+
+.history-item.score-excellent { border-left-color: #059669; }
+.history-item.score-good { border-left-color: #00693E; }
+.history-item.score-ok { border-left-color: #d97706; }
+.history-item.score-poor { border-left-color: #dc2626; }
+
+.history-left { flex: 1; min-width: 0; }
+
+.history-chapter {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    margin-bottom: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.history-date {
+    font-size: 0.78rem;
+    color: var(--text-light);
+}
+
+.history-right { text-align: right; flex-shrink: 0; margin-left: 10px; }
+
+.history-score {
+    font-weight: 700;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.history-percent {
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+@media (max-width: 400px) {
+    .stat-card-value { font-size: 1.4rem; }
+}
+
+/* === Progress Link on Home === */
+.progress-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 18px 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 2px solid transparent;
+    transition: all 0.25s ease;
+}
+
+.progress-link:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 105, 62, 0.12);
+}
+
+.progress-link-icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 105, 62, 0.08);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.progress-link-text { flex: 1; }
+.progress-link-text h3 { color: var(--primary-color); font-size: 1.05rem; margin-bottom: 2px; }
+.progress-link-text p { font-size: 0.82rem; color: var(--text-light); }
+.progress-link > i.fa-chevron-right { color: #cccccc; font-size: 0.9rem; }
