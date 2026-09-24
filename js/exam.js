@@ -57,6 +57,14 @@ let startTime = 0;
 
 // ===== Init =====
 document.addEventListener('DOMContentLoaded', () => {
+    // Check for auto-start params (from Target planner)
+    const urlParams = new URLSearchParams(window.location.search);
+    const autoClass = urlParams.get('class');
+    const autoSubject = urlParams.get('subject');
+    const autoChapter = urlParams.get('chapter');
+    const autoStart = urlParams.get('auto');
+    const fromTarget = urlParams.get('from') === 'target';
+
     // Set default class from user profile
     const user = JSON.parse(localStorage.getItem('cpb_user') || '{}');
     const userClass = user.class || '6';
@@ -79,6 +87,28 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('prevBtn').addEventListener('click', showPrev);
     document.getElementById('nextBtn').addEventListener('click', showNext);
     document.getElementById('submitBtn').addEventListener('click', submitExam);
+
+    // ===== AUTO START from Target task =====
+    if (autoClass && autoSubject && autoChapter && autoStart === '1') {
+        // Set selects to match task
+        classSelect.value = autoClass;
+        updateSubjectOptions();
+        document.getElementById('subjectSelect').value = autoSubject;
+        updateChapters();
+        document.getElementById('chapterSelect').value = autoChapter;
+
+        // Hide setup, start immediately
+        document.getElementById('setupScreen').classList.add('hidden');
+        window.__fromTarget = true;
+        window.__targetTaskInfo = {
+            class: autoClass,
+            subject: autoSubject,
+            chapter: autoChapter
+        };
+
+        // Auto-start exam
+        setTimeout(() => startExam(), 200);
+    }
 });
 
 function updateSubjectOptions() {
@@ -292,6 +322,60 @@ function displayResult(correct, total, wrong, timeTaken) {
         else if (percent >= 60) showToast('ভালো করেছ! ' + toBanglaNumber(correct) + '/' + toBanglaNumber(total), 'info');
         else showToast('আরও চেষ্টা করো!', 'warning');
     }
+
+    // If came from target, add "Return to Target" button and auto-mark task as done
+    if (window.__fromTarget && window.__targetTaskInfo) {
+        markTargetTaskDone(window.__targetTaskInfo);
+        addReturnToTargetButton();
+    }
+}
+
+function markTargetTaskDone(info) {
+    try {
+        const plan = JSON.parse(localStorage.getItem('cpb_target_plan') || 'null');
+        if (!plan || !plan.schedule) return;
+
+        const today = new Date().toISOString().split('T')[0];
+
+        plan.schedule.forEach(day => {
+            if (day.date !== today) return;
+            day.tasks.forEach((task, i) => {
+                if (task.subject === info.subject &&
+                    task.chapter === info.chapter &&
+                    task.type === 'mcq') {
+                    if (!day.done) day.done = [];
+                    if (!day.done.includes(i)) day.done.push(i);
+                }
+            });
+        });
+
+        localStorage.setItem('cpb_target_plan', JSON.stringify(plan));
+    } catch (e) {
+        console.error('markTargetTaskDone error:', e);
+    }
+}
+
+function addReturnToTargetButton() {
+    const resultCard = document.querySelector('.result-card');
+    if (!resultCard) return;
+
+    // Check if button already exists
+    if (document.getElementById('returnToTargetBtn')) return;
+
+    const btn = document.createElement('a');
+    btn.id = 'returnToTargetBtn';
+    btn.href = 'target.html';
+    btn.className = 'btn-secondary';
+    btn.style.marginTop = '10px';
+    btn.style.textDecoration = 'none';
+    btn.style.display = 'flex';
+    btn.style.alignItems = 'center';
+    btn.style.justifyContent = 'center';
+    btn.style.gap = '8px';
+    btn.innerHTML = '<i class="fas fa-bullseye"></i> প্রস্তুতিতে ফিরে যাও';
+
+    const resultActions = resultCard.querySelector('.result-actions');
+    if (resultActions) resultActions.appendChild(btn);
 }
 
 function renderReview(reviewData) {

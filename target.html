@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>পরীক্ষার প্রস্তুতি - পড়তে বসি</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0F2027">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="notes-header">
+        <div class="container notes-header-content">
+            <a href="javascript:history.back()" class="back-btn notes-back">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="notes-title-wrap">
+                <h1 class="notes-title">পরীক্ষার প্রস্তুতি</h1>
+                <p class="notes-subtitle">তোমার রুটিন বানাও</p>
+            </div>
+            <div style="width: 38px;"></div>
+        </div>
+    </header>
+
+    <main class="container target-main">
+        <!-- Setup Form -->
+        <div id="setupForm">
+            <!-- Class Info -->
+            <div class="target-section">
+                <div class="target-class-badge">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span id="classInfo">Class —</span>
+                </div>
+            </div>
+
+            <!-- Exam Info -->
+            <div class="target-section">
+                <h3 class="target-label"><i class="fas fa-calendar-alt"></i> পরীক্ষার তথ্য</h3>
+                <input type="text" id="examName" class="modal-input" placeholder="পরীক্ষার নাম (যেমন: অর্ধবার্ষিক)" maxlength="50">
+                <label class="target-sublabel">পরীক্ষার তারিখ</label>
+                <input type="date" id="examDate" class="modal-input">
+                <p class="target-hint" id="daysHint">তারিখ নির্বাচন করলে দিন গণনা হবে</p>
+            </div>
+
+            <!-- Daily Time -->
+            <div class="target-section">
+                <h3 class="target-label"><i class="fas fa-clock"></i> প্রতিদিন কত সময় দিতে পারবে?</h3>
+                <select id="dailyTime" class="modal-input">
+                    <option value="30">৩০ মিনিট</option>
+                    <option value="60" selected>১ ঘণ্টা</option>
+                    <option value="90">১.৫ ঘণ্টা</option>
+                    <option value="120">২ ঘণ্টা</option>
+                </select>
+            </div>
+
+            <!-- Subjects -->
+            <div class="target-section">
+                <h3 class="target-label"><i class="fas fa-book"></i> বিষয় নির্বাচন করো</h3>
+                <div id="subjectsContainer" class="target-subjects"></div>
+            </div>
+
+            <!-- Save Button -->
+            <div class="target-section">
+                <button id="savePlanBtn" class="btn-primary" disabled>
+                    <i class="fas fa-check"></i> রুটিন তৈরি করো
+                </button>
+                <p class="target-hint" style="text-align: center; margin-top: 12px;">
+                    অন্তত একটি বিষয় ও একটি চ্যাপ্টার সিলেক্ট করতে হবে
+                </p>
+            </div>
+        </div>
+
+        <!-- Plan View -->
+        <div id="planView" class="hidden">
+            <div class="target-plan-card">
+                <div class="plan-header">
+                    <div>
+                        <h2 id="planExamName">—</h2>
+                        <p id="planExamDate" class="plan-date">—</p>
+                    </div>
+                    <button id="resetPlanBtn" class="plan-reset-btn" title="রুটিন মুছুন">
+                        <i class="fas fa-redo"></i>
+                    </button>
+                </div>
+                <div class="plan-countdown">
+                    <div class="countdown-box">
+                        <span class="countdown-val" id="daysLeft">—</span>
+                        <span class="countdown-lbl">দিন বাকি</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span class="countdown-val" id="totalChapters">—</span>
+                        <span class="countdown-lbl">চ্যাপ্টার</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span class="countdown-val" id="progressPct">০%</span>
+                        <span class="countdown-lbl">প্রস্তুতি</span>
+                    </div>
+                </div>
+                <div class="progress-bar" style="margin-top: 15px;">
+                    <div class="progress-fill" id="planProgressFill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <h3 class="target-section-title"><i class="fas fa-tasks"></i> আজকের কাজ</h3>
+            <div id="todayTasks" class="task-list"></div>
+
+            <h3 class="target-section-title"><i class="fas fa-calendar-week"></i> আগামীকাল</h3>
+            <div id="tomorrowTasks" class="task-list"></div>
+
+            <h3 class="target-section-title"><i class="fas fa-list"></i> সম্পূর্ণ রুটিন</h3>
+            <div id="fullSchedule" class="schedule-list"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-brand">
+                <img src="icons/navbar-icon.svg" alt="logo" class="footer-logo">
+                <span class="footer-name">পড়তে বসি</span>
+            </div>
+            <p class="footer-text">&copy; 2026-Present. পড়তে বসি। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+    <script src="js/onboarding.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/target.js"></script>
+    <script src="js/pwa.js"></script>
+</body>
+</html>

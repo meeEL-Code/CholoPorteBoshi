@@ -13,7 +13,56 @@ document.addEventListener('DOMContentLoaded', () => {
     loadWelcomeCard();
     loadHomeStats();
     loadMyClass();
+    updateExamBanner();
 });
+
+function updateExamBanner() {
+    const subtitle = document.getElementById('bannerSubtitle');
+    if (!subtitle) return;
+
+    const plan = JSON.parse(localStorage.getItem('cpb_target_plan') || 'null');
+    const results = JSON.parse(localStorage.getItem('cpb_results') || '[]');
+
+    // No target plan yet
+    if (!plan || !plan.schedule || plan.schedule.length === 0) {
+        if (results.length === 0) {
+            subtitle.textContent = 'প্রতিদিন নিজেকে যাচাই করুন';
+        } else {
+            subtitle.textContent = 'লক্ষ্য সেট করতে "পরীক্ষার প্রস্তুতি" তে যাও';
+        }
+        return;
+    }
+
+    const today = new Date().toISOString().split('T')[0];
+    const schedule = plan.schedule;
+
+    // Count pending tasks
+    let todayPending = 0;
+    let overdueDays = 0;
+    let totalPending = 0;
+
+    schedule.forEach(day => {
+        const done = day.done || [];
+        const pending = day.tasks.length - done.length;
+
+        if (day.date < today && pending > 0) {
+            overdueDays++;
+            totalPending += pending;
+        } else if (day.date === today) {
+            todayPending = pending;
+            totalPending += pending;
+        }
+    });
+
+    // Dynamic message
+    if (todayPending > 0) {
+        subtitle.textContent = 'আজকের পড়া বাকি — ' + toBangla(todayPending) + 'টি কাজ';
+    } else if (overdueDays > 0) {
+        subtitle.textContent = toBangla(overdueDays) + ' দিনের পড়া বাকি';
+    } else {
+        subtitle.textContent = 'তুমি ভালো যাচ্ছো! এভাবেই এগিয়ে যাও';
+    }
+}
 
 function loadWelcomeCard() {
     const user = JSON.parse(localStorage.getItem('cpb_user') || '{}');
@@ -29,7 +78,6 @@ function loadWelcomeCard() {
     const greetingEl = document.getElementById('greeting');
     if (greetingEl) greetingEl.textContent = greeting + ', ' + name + '!';
 
-    // Subtitle: class + group
     const classBn = BANGLA[user.class] || user.class || '';
     let subParts = [];
     if (classBn) subParts.push('Class ' + classBn);
@@ -41,7 +89,6 @@ function loadWelcomeCard() {
     const subEl = document.getElementById('welcomeSub');
     if (subEl) subEl.textContent = subParts.join(' • ') || 'চলো পড়তে বসি';
 
-    // Avatar
     const avatarEl = document.getElementById('welcomeAvatar');
     if (avatarEl && window.getAvatarSVG && user.avatar) {
         avatarEl.innerHTML = window.getAvatarSVG(user.avatar);
@@ -101,24 +148,6 @@ function loadHomeStats() {
     const streak = calculateStreak(results);
     const streakEl = document.getElementById('streakVal');
     if (streakEl) streakEl.textContent = toBanglaNumber(streak);
-
-    const subtitle = document.getElementById('bannerSubtitle');
-    if (subtitle) {
-        if (results.length === 0) subtitle.textContent = 'প্রথম পরীক্ষা দিয়ে শুরু করুন';
-        else if (hasExamToday(results)) subtitle.textContent = 'আজকের পরীক্ষা সম্পন্ন <i class="fas fa-check"></i>';
-        else if (streak > 0) subtitle.textContent = 'স্ট্রিক ধরে রাখুন — আজকের পরীক্ষা দিন';
-        else subtitle.textContent = 'আবার শুরু করুন — আজকের পরীক্ষা দিন';
-    }
-}
-
-function hasExamToday(results) {
-    const t = new Date();
-    const todayKey = t.getFullYear() + '-' + (t.getMonth() + 1) + '-' + t.getDate();
-    return results.some(r => {
-        const d = new Date(r.date);
-        const key = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
-        return key === todayKey;
-    });
 }
 
 function calculateStreak(results) {

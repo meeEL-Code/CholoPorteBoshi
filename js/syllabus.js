@@ -1,7 +1,4 @@
-// ===== Syllabus Page =====
-
-let currentGroup = 'science';
-let currentClass = '6';
+// ===== Syllabus Page — Full Year View =====
 
 const SUBJECT_NAMES = {
     'bangla': 'চারুপাঠ ও আনন্দপাঠ', 'bangla-grammar': 'বাংলা ব্যাকরণ ও নির্মিতি',
@@ -16,6 +13,9 @@ const SUBJECT_NAMES = {
     'civics': 'পৌরনীতি ও নাগরিকতা', 'economics': 'অর্থনীতি'
 };
 
+let currentClass = '6';
+let currentGroup = 'science';
+
 document.addEventListener('DOMContentLoaded', () => {
     const user = JSON.parse(localStorage.getItem('cpb_user') || '{}');
     currentClass = user.class || '6';
@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const userAvatar = document.getElementById('userAvatar');
     if (userAvatar && window.getAvatarSVG) userAvatar.innerHTML = window.getAvatarSVG(user.avatar);
 
-    document.getElementById('userName').textContent = user.name || 'শিক্ষার্থী';
+    const nameEl = document.getElementById('userName');
+    if (nameEl) nameEl.textContent = user.name || 'শিক্ষার্থী';
 
     const metaParts = [];
     metaParts.push('Class ' + toBangla(currentClass));
@@ -33,18 +34,19 @@ document.addEventListener('DOMContentLoaded', () => {
         metaParts.push({ science: 'বিজ্ঞান', commerce: 'ব্যবসায় শিক্ষা', arts: 'মানবিক' }[user.group]);
     }
     if (user.school) metaParts.push(user.school);
-    document.getElementById('userMeta').textContent = metaParts.join(' • ');
 
-    document.getElementById('syllabusSubtitle').textContent = 'Class ' + toBangla(currentClass) + ' • সম্পূর্ণ সিলেবাস';
+    const metaEl = document.getElementById('userMeta');
+    if (metaEl) metaEl.textContent = metaParts.join(' • ');
 
-    // Group tabs (for class 9-10)
+    const subtitleEl = document.getElementById('syllabusSubtitle');
+    if (subtitleEl) subtitleEl.textContent = 'Class ' + toBangla(currentClass) + ' • সম্পূর্ণ বছরের সিলেবাস';
+
+    // Group tabs for 9-10
     const groupTabs = document.getElementById('groupTabs');
     if (currentClass === '9' || currentClass === '10') {
         groupTabs.classList.remove('hidden');
         document.querySelectorAll('.group-tab').forEach(tab => {
-            if (tab.dataset.group === currentGroup) tab.classList.add('active');
-            else tab.classList.remove('active');
-
+            tab.classList.toggle('active', tab.dataset.group === currentGroup);
             tab.addEventListener('click', () => {
                 document.querySelectorAll('.group-tab').forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
@@ -74,40 +76,46 @@ function loadSyllabus() {
         }
 
         const chaptersForClass = chaptersData[currentClass] || {};
-
         renderSyllabus(subjects, chaptersForClass);
-
-        // Calculate coverage
-        const results = JSON.parse(localStorage.getItem('cpb_results') || '[]');
-        calculateCoverage(subjects, chaptersForClass, results);
+        calculateCoverage(subjects, chaptersForClass);
     }).catch(err => {
         console.error(err);
-        document.getElementById('syllabusContent').innerHTML = '<p style="text-align:center;">ডেটা লোড করতে সমস্যা।</p>';
+        const content = document.getElementById('syllabusContent');
+        if (content) content.innerHTML = '<p style="text-align:center;">ডেটা লোড করতে সমস্যা।</p>';
     });
 }
 
 function renderSyllabus(subjects, chaptersForClass) {
     const content = document.getElementById('syllabusContent');
+    if (!content) return;
 
     if (subjects.length === 0) {
         content.innerHTML = '<div class="empty-state"><i class="fas fa-inbox"></i><p>এই ক্লাসের সিলেবাস এখনো যোগ করা হয়নি।</p></div>';
         return;
     }
 
-    content.innerHTML = subjects.map(sub => {
+    // Total chapters info
+    let totalChapters = 0;
+    subjects.forEach(s => { totalChapters += (chaptersForClass[s.id] || []).length; });
+
+    let html = '<div class="syllabus-overview">' +
+        '<div class="syllabus-overview-item"><i class="fas fa-book"></i> <strong>' + toBangla(subjects.length) + '</strong> বিষয়</div>' +
+        '<div class="syllabus-overview-item"><i class="fas fa-file-alt"></i> <strong>' + toBangla(totalChapters) + '</strong> চ্যাপ্টার</div>' +
+    '</div>';
+
+    html += subjects.map(sub => {
         const chapters = chaptersForClass[sub.id] || [];
-        const chapterCount = chapters.length;
-        const hasData = chapterCount > 0;
+        const hasData = chapters.length > 0;
 
         return '<div class="syllabus-subject">' +
             '<div class="syllabus-subject-head">' +
                 '<div class="syllabus-subject-icon"><i class="fas ' + sub.icon + '"></i></div>' +
                 '<div class="syllabus-subject-info">' +
                     '<h3>' + sub.name + '</h3>' +
-                    '<p>' + toBangla(chapterCount) + 'টি চ্যাপ্টার' + (hasData ? '' : ' (শীঘ্রই আসছে)') + '</p>' +
+                    '<p>' + toBangla(chapters.length) + 'টি চ্যাপ্টার' + (hasData ? '' : ' (শীঘ্রই আসছে)') + '</p>' +
                 '</div>' +
             '</div>' +
-            (hasData ? 
+            (hasData ?
                 '<div class="syllabus-chapters">' +
                     chapters.map(ch =>
                         '<a href="notes.html?class=' + currentClass + '&subject=' + sub.id +
@@ -117,34 +125,37 @@ function renderSyllabus(subjects, chaptersForClass) {
                             '<i class="fas fa-chevron-right"></i>' +
                         '</a>'
                     ).join('') +
-                '</div>' : 
+                '</div>' :
                 '<div class="syllabus-empty-chapters"><i class="fas fa-clock"></i> চ্যাপ্টার তালিকা শীঘ্রই যোগ করা হবে</div>'
             ) +
         '</div>';
     }).join('');
+
+    content.innerHTML = html;
 }
 
-function calculateCoverage(subjects, chaptersForClass, results) {
+function calculateCoverage(subjects, chaptersForClass) {
+    const results = JSON.parse(localStorage.getItem('cpb_results') || '[]');
+
     let totalChapters = 0;
     let completedChapters = new Set();
 
     subjects.forEach(sub => {
         const chapters = chaptersForClass[sub.id] || [];
         totalChapters += chapters.length;
-
         chapters.forEach(ch => {
-            // Check if user has any exam result for this chapter
             const hasResult = results.some(r => r.chapter === ch.id);
-            if (hasResult) {
-                completedChapters.add(sub.id + '_' + ch.id);
-            }
+            if (hasResult) completedChapters.add(sub.id + '_' + ch.id);
         });
     });
 
     const percent = totalChapters === 0 ? 0 : Math.round((completedChapters.size / totalChapters) * 100);
 
-    document.getElementById('progressPercent').textContent = toBangla(percent) + '%';
-    document.getElementById('syllabusProgressFill').style.width = percent + '%';
+    const pEl = document.getElementById('progressPercent');
+    if (pEl) pEl.textContent = toBangla(percent) + '%';
+
+    const fEl = document.getElementById('syllabusProgressFill');
+    if (fEl) fEl.style.width = percent + '%';
 }
 
 function toBangla(num) {
