@@ -13,56 +13,130 @@ document.addEventListener('DOMContentLoaded', () => {
     loadWelcomeCard();
     loadHomeStats();
     loadMyClass();
-    updateExamBanner();
+    loadTargetProgress();
+
+    // Remaining card click → navigate to baki.html
+    const remainingCard = document.getElementById('remainingCard');
+    if (remainingCard) {
+        remainingCard.addEventListener('click', () => {
+            location.href = 'baki.html';
+        });
+    }
 });
 
-function updateExamBanner() {
-    const subtitle = document.getElementById('bannerSubtitle');
-    if (!subtitle) return;
 
+
+function loadTargetProgress() {
     const plan = JSON.parse(localStorage.getItem('cpb_target_plan') || 'null');
-    const results = JSON.parse(localStorage.getItem('cpb_results') || '[]');
 
-    // No target plan yet
+    const remainingEl = document.getElementById('remainingVal');
+    const daysEl = document.getElementById('examDaysVal');
+    const completionEl = document.getElementById('completionVal');
+
+    // Also update target card status
+    const targetCard = document.getElementById('targetCard');
+    const statusEl = targetCard ? targetCard.querySelector('.target-status') : null;
+
     if (!plan || !plan.schedule || plan.schedule.length === 0) {
-        if (results.length === 0) {
-            subtitle.textContent = 'প্রতিদিন নিজেকে যাচাই করুন';
-        } else {
-            subtitle.textContent = 'লক্ষ্য সেট করতে "পরীক্ষার প্রস্তুতি" তে যাও';
-        }
+        if (remainingEl) remainingEl.textContent = '০';
+        if (daysEl) daysEl.textContent = '০';
+        if (completionEl) completionEl.textContent = '০%';
+        if (statusEl) statusEl.textContent = 'টার্গেট সেট করে রুটিন বানাও';
         return;
     }
 
-    const today = new Date().toISOString().split('T')[0];
-    const schedule = plan.schedule;
+    // 1. Remaining chapters/tasks
+    let totalTasks = 0;
+    let doneTasks = 0;
 
-    // Count pending tasks
-    let todayPending = 0;
-    let overdueDays = 0;
-    let totalPending = 0;
-
-    schedule.forEach(day => {
-        const done = day.done || [];
-        const pending = day.tasks.length - done.length;
-
-        if (day.date < today && pending > 0) {
-            overdueDays++;
-            totalPending += pending;
-        } else if (day.date === today) {
-            todayPending = pending;
-            totalPending += pending;
-        }
+    plan.schedule.forEach(day => {
+        totalTasks += day.tasks.length;
+        doneTasks += (day.done || []).length;
     });
 
-    // Dynamic message
-    if (todayPending > 0) {
-        subtitle.textContent = 'আজকের পড়া বাকি — ' + toBangla(todayPending) + 'টি কাজ';
-    } else if (overdueDays > 0) {
-        subtitle.textContent = toBangla(overdueDays) + ' দিনের পড়া বাকি';
-    } else {
-        subtitle.textContent = 'তুমি ভালো যাচ্ছো! এভাবেই এগিয়ে যাও';
+    // Remaining CHAPTERS
+    const totalChapters = countUniqueChapters(plan);
+    const completedChapters = countCompletedChapters(plan);
+    const remainingChapters = Math.max(0, totalChapters - completedChapters);
+    if (remainingEl) remainingEl.textContent = toBanglaNumber(remainingChapters);
+
+    // 2. Days until exam
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const examDate = new Date(plan.examDate);
+    examDate.setHours(0, 0, 0, 0);
+    const daysLeft = Math.max(0, Math.ceil((examDate - today) / (1000 * 60 * 60 * 24)));
+
+    if (daysEl) daysEl.textContent = toBanglaNumber(daysLeft);
+
+    // 3. Completion %
+    const completion = totalTasks === 0 ? 0 : Math.round((doneTasks / totalTasks) * 100);
+    if (completionEl) completionEl.textContent = toBanglaNumber(completion) + '%';
+
+    // Update target card status
+    if (statusEl) {
+        const todayStr = today.toISOString().split('T')[0];
+        let todayPending = 0;
+        let todayDone = 0;
+        let overdueCount = 0;
+
+        plan.schedule.forEach(day => {
+            const done = day.done || [];
+            const pending = day.tasks.length - done.length;
+            if (day.date === todayStr) {
+                todayPending = pending;
+                todayDone = done.length;
+            } else if (day.date < todayStr && pending > 0) {
+                overdueCount++;
+            }
+        });
+
+        if (todayPending > 0) {
+            statusEl.textContent = 'আজ ' + toBanglaNumber(todayPending) + 'টি কাজ বাকি';
+            statusEl.style.color = '#C5A059';
+        } else if (todayDone > 0) {
+            statusEl.textContent = 'আজকের কাজ শেষ! ✓';
+            statusEl.style.color = '#059669';
+        } else if (overdueCount > 0) {
+            statusEl.textContent = toBanglaNumber(overdueCount) + ' দিনের কাজ বাকি';
+            statusEl.style.color = '#DC2626';
+        } else {
+            statusEl.textContent = 'শুরু করতে প্রস্তুত';
+        }
     }
 }
+
+function countUniqueChapters(plan) {
+    const seen = new Set();
+    plan.schedule.forEach(day => {
+        day.tasks.forEach(t => {
+            seen.add(t.subject + '_' + t.chapter);
+        });
+    });
+    return seen.size;
+}
+
+function countCompletedChapters(plan) {
+    // A chapter is "complete" if BOTH notes + mcq tasks are done
+    const chapterTasks = {}; // key -> { total, done }
+
+    plan.schedule.forEach(day => {
+        const done = day.done || [];
+        day.tasks.forEach((t, i) => {
+            const key = t.subject + '_' + t.chapter;
+            if (!chapterTasks[key]) chapterTasks[key] = { total: 0, done: 0 };
+            chapterTasks[key].total++;
+            if (done.includes(i)) chapterTasks[key].done++;
+        });
+    });
+
+    let completed = 0;
+    Object.values(chapterTasks).forEach(c => {
+        if (c.total > 0 && c.done >= c.total) completed++;
+    });
+    return completed;
+}
+
 
 function loadWelcomeCard() {
     const user = JSON.parse(localStorage.getItem('cpb_user') || '{}');

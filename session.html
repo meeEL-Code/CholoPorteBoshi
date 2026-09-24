@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>পড়াশোনা - পড়তে বসি</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0F2027">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="notes-header">
+        <div class="container notes-header-content">
+            <a href="javascript:history.back()" class="back-btn notes-back">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="notes-title-wrap">
+                <h1 class="notes-title" id="sessionTitle">পড়াশোনা</h1>
+                <p class="notes-subtitle" id="sessionSubtitle">লোড হচ্ছে...</p>
+            </div>
+            <div id="sessionProgress" class="session-progress-badge">১/৩</div>
+        </div>
+    </header>
+
+    <main class="container session-main">
+        <!-- Step 1: Notes -->
+        <section id="stepNotes" class="session-step hidden">
+            <div class="session-step-head">
+                <div class="session-step-icon gold">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <div>
+                    <h2 class="session-step-title">ধাপ ১: নোট পড়ো</h2>
+                    <p class="session-step-desc" id="notesSubtitle">সাবধানে পড়ো, তারপর OK চাপো</p>
+                </div>
+            </div>
+
+            <div id="noteContent" class="session-note-content"></div>
+
+            <button id="noteOkBtn" class="session-btn-primary">
+                <i class="fas fa-check"></i> পড়া শেষ — MCQ শুরু করি
+            </button>
+        </section>
+
+        <!-- Step 2: MCQ -->
+        <section id="stepMcq" class="session-step hidden">
+            <div class="session-step-head">
+                <div class="session-step-icon blue">
+                    <i class="fas fa-pencil"></i>
+                </div>
+                <div>
+                    <h2 class="session-step-title" id="mcqTitle">ধাপ ২: MCQ পরীক্ষা</h2>
+                    <p class="session-step-desc" id="mcqSubtitle">২০টি প্রশ্ন</p>
+                </div>
+            </div>
+
+            <div class="session-timer-row">
+                <div class="session-timer" id="sessionTimer">
+                    <i class="fas fa-clock"></i> <span id="sessionTimerText">২০:০০</span>
+                </div>
+                <div class="session-progress-text">
+                    প্রশ্ন <span id="sessionCurrentQ">১</span> / <span id="sessionTotalQ">২০</span>
+                </div>
+            </div>
+
+            <div class="session-progress-bar">
+                <div class="session-progress-fill" id="sessionProgressFill"></div>
+            </div>
+
+            <div class="session-question-card">
+                <p class="session-question-text" id="sessionQuestionText">লোড হচ্ছে...</p>
+                <div class="session-options" id="sessionOptions"></div>
+            </div>
+
+            <div class="session-nav">
+                <button id="sessionPrevBtn" class="session-btn-secondary" disabled>
+                    <i class="fas fa-arrow-left"></i> পূর্ববর্তী
+                </button>
+                <button id="sessionNextBtn" class="session-btn-primary">
+                    পরবর্তী <i class="fas fa-arrow-right"></i>
+                </button>
+                <button id="sessionSubmitBtn" class="session-btn-submit hidden">
+                    <i class="fas fa-check"></i> সাবমিট
+                </button>
+            </div>
+        </section>
+
+        <!-- Step 3: Result -->
+        <section id="stepResult" class="session-step hidden">
+            <div class="session-result-icon" id="sessionResultIcon"></div>
+            <h2 class="session-result-title" id="sessionResultTitle">চলছে...</h2>
+            <p class="session-result-score" id="sessionResultScore">—</p>
+            <p class="session-result-msg" id="sessionResultMsg"></p>
+
+            <div class="session-result-stats">
+                <div class="session-stat-box">
+                    <span class="session-stat-val correct" id="sessionCorrect">০</span>
+                    <span class="session-stat-lbl">সঠিক</span>
+                </div>
+                <div class="session-stat-box">
+                    <span class="session-stat-val wrong" id="sessionWrong">০</span>
+                    <span class="session-stat-lbl">ভুল</span>
+                </div>
+                <div class="session-stat-box">
+                    <span class="session-stat-val" id="sessionTime">০:০০</span>
+                    <span class="session-stat-lbl">সময়</span>
+                </div>
+            </div>
+
+            <!-- Wrong Answer Review -->
+            <div id="wrongReviewSection" class="session-review hidden">
+                <h3 class="session-review-title"><i class="fas fa-redo"></i> ভুল প্রশ্নগুলো</h3>
+                <div id="wrongReviewList" class="session-review-list"></div>
+            </div>
+
+            <!-- Ask more MCQ -->
+            <div id="askMoreSection" class="session-ask-more hidden">
+                <div class="session-ask-card">
+                    <div class="session-ask-icon"><i class="fas fa-question-circle"></i></div>
+                    <h3>আরও MCQ চাও?</h3>
+                    <p id="remainingInfo">আরও <strong>৮০টি</strong> প্রশ্ন বাকি আছে</p>
+                    <div class="session-ask-buttons">
+                        <button id="moreMcqBtn" class="session-btn-primary">
+                            <i class="fas fa-play"></i> হ্যাঁ, দাও
+                        </button>
+                        <button id="finishBtn" class="session-btn-secondary">
+                            <i class="fas fa-flag-checkered"></i> না, যথেষ্ট
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wrong answer practice -->
+            <div id="wrongPracticeSection" class="session-ask-more hidden">
+                <div class="session-ask-card" style="border-color: #DC2626;">
+                    <div class="session-ask-icon" style="background: rgba(220,38,38,0.1); color: #DC2626;"><i class="fas fa-redo"></i></div>
+                    <h3>ভুলগুলো আবার চেষ্টা করবে?</h3>
+                    <p><strong id="wrongCountText">৫টি</strong> প্রশ্ন ভুল হয়েছে — সমাধানসহ আবার দাও</p>
+                    <div class="session-ask-buttons">
+                        <button id="retryWrongBtn" class="session-btn-primary" style="background: #DC2626;">
+                            <i class="fas fa-redo"></i> হ্যাঁ, আবার দাও
+                        </button>
+                        <button id="skipWrongBtn" class="session-btn-secondary">
+                            <i class="fas fa-forward"></i> না, এগিয়ে যাও
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Completion -->
+            <div id="completionSection" class="session-completion hidden">
+                <div class="session-completion-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>তুমি এগিয়ে গেছ!</h3>
+                <p>এই চ্যাপ্টারের কাজ শেষ হয়েছে</p>
+                <a href="target.html" class="session-btn-primary" style="text-decoration: none; display: inline-flex;">
+                    <i class="fas fa-bullseye"></i> প্রস্তুতিতে ফিরে যাও
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/onboarding.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/session.js"></script>
+    <script src="js/pwa.js"></script>
+</body>
+</html>

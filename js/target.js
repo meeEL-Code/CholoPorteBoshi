@@ -306,11 +306,13 @@ function renderTasks(containerId, day, plan, isToday) {
 
         let actionUrl = '';
         if (task.type === 'notes') {
-            actionUrl = 'notes.html?class=' + plan.class + '&subject=' + task.subject +
-                       '&chapter=' + task.chapter + '&title=' + encodeURIComponent(chapterName);
+            actionUrl = 'session.html?class=' + plan.class + '&subject=' + task.subject +
+                       '&chapter=' + task.chapter + '&title=' + encodeURIComponent(chapterName) +
+                       '&from=target';
         } else {
-            actionUrl = 'exam.html?class=' + plan.class + '&subject=' + task.subject +
-                       '&chapter=' + task.chapter + '&auto=1&from=target';
+            actionUrl = 'session.html?class=' + plan.class + '&subject=' + task.subject +
+                       '&chapter=' + task.chapter + '&title=' + encodeURIComponent(chapterName) +
+                       '&from=target&skipNotes=1';
         }
 
         const icon = task.type === 'notes' ? 'fa-book-open' : 'fa-pencil';
