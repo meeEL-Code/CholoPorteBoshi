@@ -3672,3 +3672,122 @@ a:not(.btn-primary):not(.btn-secondary):not(.action-btn):not(.fab-btn) {
     .ai-input-wrap { padding: 8px 12px 12px 12px; }
     .ai-quick-actions { margin: 0 -12px; padding-left: 12px; padding-right: 12px; }
 }
+
+/* ============================================
+   AI CHAT — Flat ChatGPT-Style
+   ============================================ */
+
+/* Bot messages: no bubble, just text */
+.ai-msg-bot .ai-bubble {
+    background-color: transparent !important;
+    color: #1E293B;
+    box-shadow: none !important;
+    padding: 4px 0 !important;
+    border-radius: 0 !important;
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.ai-msg-bot {
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 100%;
+}
+
+/* Smaller, subtler avatar */
+.ai-avatar {
+    width: 28px !important;
+    height: 28px !important;
+    background: linear-gradient(135deg, #C5A059 0%, #D4AF6A 100%) !important;
+    color: #0F2027 !important;
+    font-size: 0.55rem !important;
+    font-weight: 800 !important;
+    margin-top: 4px;
+    box-shadow: none !important;
+}
+
+/* User messages: subtle background, no strong gradient */
+.ai-msg-user .ai-bubble {
+    background-color: #F1F5F9 !important;
+    color: #1E293B !important;
+    box-shadow: none !important;
+    border-radius: 18px !important;
+    padding: 10px 16px !important;
+    font-size: 0.92rem;
+    border: 1px solid #E2E8F0;
+}
+
+.ai-msg-user {
+    align-self: flex-end;
+    max-width: 80%;
+    flex-direction: row-reverse;
+}
+
+/* Add more breathing room between messages */
+.ai-messages {
+    gap: 22px !important;
+    padding: 24px 20px 140px 20px !important;
+}
+
+/* Welcome message slightly larger */
+.ai-msg-bot:first-child .ai-bubble {
+    font-size: 1rem;
+}
+
+/* Bold text inside bot messages — highlight color */
+.ai-msg-bot .ai-bubble b,
+.ai-msg-bot .ai-bubble strong {
+    color: #1E3A8A;
+    font-weight: 700;
+}
+
+/* ===== Typing indicator without bubble ===== */
+.ai-typing {
+    background-color: transparent !important;
+    padding: 4px 0 !important;
+    box-shadow: none !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 500px) {
+    .ai-messages { gap: 18px !important; padding: 18px 16px 130px 16px !important; }
+    .ai-msg-bot .ai-bubble { font-size: 0.92rem; }
+    .ai-msg-user .ai-bubble { font-size: 0.88rem; padding: 9px 14px !important; }
+    .ai-avatar { width: 26px !important; height: 26px !important; font-size: 0.5rem !important; }
+}
+
+/* Slimmer AI page header */
+.ai-page-body .notes-header {
+    padding: 12px 0 !important;
+    min-height: 56px;
+}
+
+.ai-page-body .notes-title-wrap {
+    text-align: left !important;
+    padding-left: 4px;
+}
+
+.ai-page-body .notes-title {
+    font-size: 1.05rem !important;
+    font-weight: 700;
+}
+
+.ai-page-body .notes-subtitle {
+    font-size: 0.7rem !important;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Fix: User bubble — white text on blue */
+.ai-msg-user .ai-bubble {
+    background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%) !important;
+    background-color: #1E3A8A !important;
+    color: #FFFFFF !important;
+    font-weight: 500 !important;
+    box-shadow: 0 3px 10px rgba(30, 58, 138, 0.25) !important;
+    border: none !important;
+    padding: 10px 16px !important;
+    border-radius: 18px !important;
+    font-size: 0.92rem;
+}
