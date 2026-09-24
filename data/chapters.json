@@ -399,106 +399,161 @@
       {
         "id": "ch1",
         "num": "১",
-        "title": "গদ্য: অভাগীর স্বর্গ"
+        "title": "শুভা"
       },
       {
         "id": "ch2",
         "num": "২",
-        "title": "পদ্য: বঙ্গভূমির প্রতি"
+        "title": "বই পড়া"
       },
       {
         "id": "ch3",
         "num": "৩",
-        "title": "গদ্য: বই পড়া"
+        "title": "আম আঁটির ভেঁপু"
       },
       {
         "id": "ch4",
         "num": "৪",
-        "title": "পদ্য: কপোতাক্ষ নদ"
+        "title": "মানুষ মুহম্মদ (সা.)"
       },
       {
         "id": "ch5",
         "num": "৫",
-        "title": "গদ্য: নিমগাছ"
+        "title": "নিমগাছ"
       },
       {
         "id": "ch6",
         "num": "৬",
-        "title": "পদ্য: জীবন-সঙ্গীত"
+        "title": "শিক্ষা ও মনুষ্যত্ব"
       },
       {
         "id": "ch7",
         "num": "৭",
-        "title": "গদ্য: মানুষ মুহম্মদ (সা.)"
+        "title": "প্রবাস বন্ধু"
       },
       {
         "id": "ch8",
         "num": "৮",
-        "title": "উপন্যাস: কাকতাড়ুয়া"
+        "title": "মমতাদি"
       },
       {
         "id": "ch9",
         "num": "৯",
-        "title": "নাটক: বহিপীর"
+        "title": "একাত্তরের দিনগুলি"
       },
       {
         "id": "ch10",
         "num": "১০",
-        "title": "সাহিত্যপাঠ"
+        "title": "সাহিত্যখেলা"
+      },
+      {
+        "id": "ch11",
+        "num": "১১",
+        "title": "বঙ্গবাণী"
+      },
+      {
+        "id": "ch12",
+        "num": "১২",
+        "title": "কপোতাক্ষ নদ"
+      },
+      {
+        "id": "ch13",
+        "num": "১৩",
+        "title": "জীবন-সঙ্গীত"
+      },
+      {
+        "id": "ch14",
+        "num": "১৪",
+        "title": "মানুষ"
+      },
+      {
+        "id": "ch15",
+        "num": "১৫",
+        "title": "সেই দিন এই মাঠ"
+      },
+      {
+        "id": "ch16",
+        "num": "১৬",
+        "title": "পল্লীজননী"
+      },
+      {
+        "id": "ch17",
+        "num": "১৭",
+        "title": "আশা"
+      },
+      {
+        "id": "ch18",
+        "num": "১৮",
+        "title": "আমি কোনো আগন্তুক নই"
+      },
+      {
+        "id": "ch19",
+        "num": "১৯",
+        "title": "স্বাধীনতা এ শব্দটি কীভাবে আমাদের হলো"
+      },
+      {
+        "id": "ch20",
+        "num": "২০",
+        "title": "কাকতাড়ুয়া (উপন্যাস)"
+      },
+      {
+        "id": "ch21",
+        "num": "২১",
+        "title": "বহিপীর (নাটক)"
       }
     ],
     "bangla-grammar": [
       {
         "id": "ch1",
         "num": "১",
-        "title": "ভাষা ও ব্যাকরণ"
+        "title": "ধ্বনিতত্ত্ব"
       },
       {
         "id": "ch2",
         "num": "২",
-        "title": "ধ্বনি ও বর্ণ"
+        "title": "শব্দরূপ"
       },
       {
         "id": "ch3",
         "num": "৩",
-        "title": "শব্দ গঠন"
+        "title": "পদ প্রকরণ"
       },
       {
         "id": "ch4",
         "num": "৪",
-        "title": "পদ প্রকরণ"
+        "title": "সমাস"
       },
       {
         "id": "ch5",
         "num": "৫",
-        "title": "বাক্য প্রকরণ"
+        "title": "সন্ধি"
       },
       {
         "id": "ch6",
         "num": "৬",
-        "title": "অর্থ ও বাচ্য"
+        "title": "কারক ও বিভক্তি"
       },
       {
         "id": "ch7",
         "num": "৭",
-        "title": "নির্মিতি"
+        "title": "বাক্য প্রকরণ"
       },
       {
         "id": "ch8",
         "num": "৮",
-        "title": "অনুচ্ছেদ ও প্রতিবেদন"
+        "title": "নির্মিতি"
       }
     ],
     "english": [
       {
         "id": "ch1",
         "num": "1",
-        "title": "Mother Tongue"
+        "title": "Sense of Self"
       },
       {
         "id": "ch2",
         "num": "2",
-        "title": "Pastimes"
+        "title": "Climate Change"
       },
       {
         "id": "ch3",
@@ -513,7 +568,7 @@
       {
         "id": "ch5",
         "num": "5",
-        "title": "Nature and Environment"
+        "title": "Pastimes"
       },
       {
         "id": "ch6",
@@ -528,7 +583,7 @@
       {
         "id": "ch8",
         "num": "8",
-        "title": "Media and Mode of Life"
+        "title": "Roots"
       },
       {
         "id": "ch9",
@@ -548,39 +603,39 @@
       {
         "id": "ch12",
         "num": "12",
-        "title": "Roots"
+        "title": "Roots of Language"
       }
     ],
     "english-grammar": [
       {
         "id": "ch1",
         "num": "1",
-        "title": "Parts of Speech"
+        "title": "Articles"
       },
       {
         "id": "ch2",
         "num": "2",
-        "title": "Tense"
+        "title": "Prepositions"
       },
       {
         "id": "ch3",
         "num": "3",
-        "title": "Voice"
+        "title": "Right Form of Verbs"
       },
       {
         "id": "ch4",
         "num": "4",
-        "title": "Narration"
+        "title": "Voice"
       },
       {
         "id": "ch5",
         "num": "5",
-        "title": "Transformation of Sentences"
+        "title": "Narration"
       },
       {
         "id": "ch6",
         "num": "6",
-        "title": "Right Form of Verbs"
+        "title": "Transformation of Sentences"
       },
       {
         "id": "ch7",
@@ -590,7 +645,7 @@
       {
         "id": "ch8",
         "num": "8",
-        "title": "Letter & Application"
+        "title": "Punctuation"
       }
     ],
     "math": [
@@ -1352,6 +1407,45 @@
         "id": "ch16",
         "num": "১৬",
         "title": "বাংলাদেশের হেল্পলাইন ও সামাজিক সুরক্ষা"
+      }
+    ],
+    "pe": [
+      {
+        "id": "ch1",
+        "num": "১",
+        "title": "শরীরচর্চা ও স্বাস্থ্য"
+      },
+      {
+        "id": "ch2",
+        "num": "২",
+        "title": "খেলাধুলা ও নিয়মকানুন"
+      },
+      {
+        "id": "ch3",
+        "num": "৩",
+        "title": "প্রাথমিক চিকিৎসা"
+      },
+      {
+        "id": "ch4",
+        "num": "৪",
+        "title": "নিরাপদ জীবনযাপন"
+      }
+    ],
+    "career": [
+      {
+        "id": "ch1",
+        "num": "১",
+        "title": "নিজকে জানা"
+      },
+      {
+        "id": "ch2",
+        "num": "২",
+        "title": "ক্যারিয়ার গঠন"
+      },
+      {
+        "id": "ch3",
+        "num": "৩",
+        "title": "কর্মসংস্থান ও আত্মকর্মসংস্থান"
       }
     ]
   },
