@@ -1,6 +1,6 @@
 // ===== Service Worker — Offline Support =====
 
-const CACHE_NAME = 'cpb-v35';
+const CACHE_NAME = 'cpb-v36';
 const ASSETS = [
     './',
     './index.html',
